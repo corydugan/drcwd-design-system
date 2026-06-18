@@ -35,11 +35,13 @@ Brand grape is **accent + ink only — never a page fill.** Neutrals carry 90%+ 
 - Display tracking `-0.02em`; body line-height `1.6`.
 
 ## 3 · Logo usage
-- **Wordmark:** "Dr. Cory Dugan" in DM Serif Display, grape-800 / ink-1000.
-- **Credential lockup:** "Dr. Cory Dugan, PhD" + optional eyebrow "HEALTH-SCREENING AI".
-- Clearspace ≥ cap-height of the "D"; min 150px / 25mm. Approved on paper, ink-050, grape-050.
-- **Don't:** place on grape fills, un-scrimmed photos, or recolor outside grape-800 / ink-1000 / paper.
-- *(No mark file ships yet — this is the spec to hold to.)*
+- **Mark:** the **Δ delta** — symbol for change/difference, and an upward data peak. Equilateral, grape-800 (or paper on grape). The single signature across icon + wordmark.
+- **Primary lockup:** delta + "Dr. Cory Dugan" wordmark in DM Serif Display (`logo/lockup-primary-delta-outlined.svg`).
+- **Credential lockup:** + "PhD" + eyebrow "HEALTH-SCREENING AI" (`logo/lockup-credential-delta-outlined.svg`). **Stacked:** `logo/wordmark-stacked-delta-outlined.svg`.
+- **Icon:** grape delta tile, brand xl radius (`logo/icon-delta.svg` + `-inverse` for light). Scales to a 24px favicon.
+- Clearspace ≥ the delta's height; min wordmark width 150px / 25mm. Approved on paper, ink-050, grape-050.
+- **Don't:** stretch/rotate the delta, add a gradient, place on an un-scrimmed photo, recolor outside grape/ink/paper, or re-add the baseline rule under the name.
+- Wordmark SVGs are **outlined to paths** (print-safe, no font dependency). Regenerate from `.build/outline.py` if the wordmark text changes. The retired "cd" monogram + baseline-wordmark explorations live in `logo/options/`.
 
 ## 4 · Motif — the evidence signature (v3 center of gravity)
 Kept: hairline rules as structure · generous whitespace (35–40% min) · squared editorial cards · serif-italic grape numerals.

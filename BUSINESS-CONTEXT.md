@@ -36,7 +36,7 @@
 - *(HolisticHer @_holisticher is a SEPARATE brand, winding down → CWD absorbing the niche. Different design system: gradient + Montserrat. Never mix.)*
 
 ## 6. ⚠ KNOWN DRIFTS / RECONCILE BEFORE BUILDING
-1. **Live site is on the OLD brand.** `drcwd-website` last commit 2026-05-30 — BEFORE the grape rebrand (June 12) and v3 (June 18). So the live site is likely still teal/pre-v3 and has no delta logo or stat motif. Any site work = also a rebrand-to-v3 opportunity.
+1. **Live site is OFF-BRAND (verified 2026-06-18).** `drcwd-website` (last commit 2026-05-30) uses an **indigo/violet `#6366f1` + pink palette on DARK backgrounds** — NOT grape, NOT teal (verified: 15 indigo hits, 0 grape across 6 pages). It does use DM Serif Display + DM Sans. So the public site matches neither v2 grape nor v3 "Authority"; it's white-dominant-editorial's opposite (dark + colorful). Any site work = a full rebrand-to-v3 (color + light/editorial feel + delta logo + stat motif), not a tweak.
 2. **Positioning mismatch.** Live site leads with coaching; the pivot + v3 brand + LinkedIn lead with healthcare-AI authority. Decide how hard to swing the site toward the AI/consulting offer.
 3. **Duplicate deploy folder.** `DR.CWD/netlify-deploy/` vs the GitHub repo — confirm the repo is the only deploy source; the Drive copy is stale.
 

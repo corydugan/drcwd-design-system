@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="560" height="150" role="img" aria-label="Dr. Cory Dugan">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;display=swap');
+      .wm { font-family:'DM Serif Display', Georgia, serif; font-size:72px; fill:#352051; }
+    </style>
+  </defs>
+  <!-- wordmark -->
+  <text x="0" y="90" class="wm">Dr. Cory Dugan</text>
+  <!-- the signature: grape data-baseline mark -->
+  <rect x="2" y="112" width="74" height="4" fill="#352051"/>
+</svg>

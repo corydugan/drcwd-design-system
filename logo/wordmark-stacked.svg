@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" width="320" height="200" role="img" aria-label="Dr. Cory Dugan">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;display=swap');
+      .wm { font-family:'DM Serif Display', Georgia, serif; font-size:60px; fill:#352051; }
+    </style>
+  </defs>
+  <text x="0" y="68" class="wm">Dr. Cory</text>
+  <text x="0" y="132" class="wm">Dugan</text>
+  <!-- signature baseline -->
+  <rect x="2" y="154" width="64" height="4" fill="#352051"/>
+</svg>

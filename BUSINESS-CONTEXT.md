@@ -3,6 +3,9 @@
 > **Purpose:** the single inventory of everything that already exists on the drCWDugan business side, so no asset is built blind or duplicated. **Load this at the start of ANY drCWDugan brand / website / marketing / asset session, before building anything.** If something here is stale, fix it here — this file is the map.
 > Last refreshed: 2026-06-18.
 
+## ⚠ J-1 WORK RIGHTS — SETTLED, DO NOT RE-LITIGATE
+**Cory CAN be paid NOW.** RO Amy Gueho cleared it: earning **AUD from Australian clients via his ABN** (AUD into his AU bank) is completely fine while he is in the US on J-1 — it's only a routine item he raises with his accountant at AU tax-return time (he is not using any tax treaties). The mining/OH ICP is AU-based → squarely in the cleared lane, so paid work there is **real revenue now, not pipeline-for-later.** Only **US-based / USD clients** are out of scope. Free tools/demos/skill-building are always fine. The niche doc's "validation now = no paid work" line is OVER-conservative — this clearance supersedes it. (memory `feedback_j1_paid_consulting_settled`)
+
 ---
 
 ## 1. THE LIVE WEBSITE (it already exists — don't rebuild from zero)

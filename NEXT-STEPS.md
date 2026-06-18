@@ -17,7 +17,7 @@ Rebuilt the drCWDugan brand design system from scratch as **v3 "Authority"** dur
 | Full spec (human-readable) | repo `README.md` (8 blocks) |
 | Paste-into-tools context | repo `SKILL.md` |
 | Logo files | repo `logo/*.svg` |
-| **SUPERSEDED — do not edit** | old grape-v2 at `00_ACTIVE/03_BUSINESS 🟣/DR.CWD/dr-cory-dugan-design-system/` · old TEAL claude.ai project (id `d1f1b3fe-...`) |
+| **SUPERSEDED — ARCHIVED 2026-06-18** | old grape-v2 folder + orphan/staging folders moved to `DR.CWD/_archive/2026-06-18 superseded/`. Old TEAL claude.ai project (id `d1f1b3fe-...`) still live — retire separately. |
 
 ## 3. DISCOVERABILITY (so any future session knows what this is)
 Registered in 4 places — all done:

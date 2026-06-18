@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 120" width="600" height="120" role="img" aria-label="Dr. Cory Dugan with delta mark">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;display=swap');
+      .wm { font-family:'DM Serif Display', Georgia, serif; font-size:64px; fill:#352051; }
+    </style>
+  </defs>
+  <!-- delta as the leading signature mark (replaces the baseline rule) -->
+  <polygon points="26,34 8,80 44,80" fill="#352051"/>
+  <text x="64" y="80" class="wm">Dr. Cory Dugan</text>
+</svg>

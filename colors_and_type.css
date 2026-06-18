@@ -257,6 +257,21 @@ small, .meta { font-size: var(--fs-meta); color: var(--color-fg-subtle); }
 .citation { font-family: var(--font-sans); font-size: var(--fs-meta); color: var(--color-fg-subtle); line-height: var(--lh-tight); }
 .citation a { border-bottom: 1px dotted currentColor; }
 
+/* ---------------------------------------------------------------------
+   v3.1 VERTICAL RHYTHM — headings deliberately carry margin:0 so layouts
+   own spacing; these adjacent-sibling rules add measured breathing room
+   ONLY when text follows a heading, so nothing reads cramped by default.
+   --------------------------------------------------------------------- */
+.eyebrow + h1, .eyebrow + h2, .eyebrow + h3,
+.eyebrow + .h1, .eyebrow + .h2, .eyebrow + .h3 { margin-top: var(--space-3); }
+h1 + p, h2 + p, h3 + p, h4 + p, h5 + p,
+.h1 + p, .h2 + p, .h3 + p,
+h1 + .lead, h2 + .lead, h3 + .lead { margin-top: var(--space-5); }
+h1 + h2, h2 + h3, h3 + h4 { margin-top: var(--space-4); }
+
+/* .nowrap — keep evidence units intact ("p < .001" must never break) */
+.nowrap { white-space: nowrap; }
+
 a { color: var(--color-link); text-decoration: none; border-bottom: 1px solid currentColor; transition: color var(--dur-fast) var(--ease-out); }
 a:hover { color: var(--color-link-hover); }
 

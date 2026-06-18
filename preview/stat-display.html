@@ -1,0 +1,41 @@
+<!-- @dsCard group="Motif" name="Stat display + evidence signature" subtitle="The v3 authority signature: tabular stats, method label, data baseline, citation" -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stat display — drCWDugan v3</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{padding:var(--space-12) var(--space-10);max-width:900px;margin:0 auto}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--space-10);margin:var(--space-8) 0}
+  .block{}
+  .block .method-label{display:block;margin-bottom:var(--space-3)}
+  .block .stat{display:block}
+  .block .evidence{display:block;margin-top:var(--space-3)}
+</style></head>
+<body>
+  <p class="eyebrow">drCWDugan · v3 Authority</p>
+  <h2>The evidence signature</h2>
+  <p class="lead">Authority in this space comes from data rigor, not decoration. Lead with the number, label the method, cite the source.</p>
+
+  <div class="stats">
+    <div class="block">
+      <span class="method-label">Prevalence · n = 12,480</span>
+      <span class="stat stat--grape">1 in 3</span>
+      <hr class="data-baseline">
+      <span class="evidence">women iron deficient · p &lt; .001</span>
+    </div>
+    <div class="block">
+      <span class="method-label">Model AUC</span>
+      <span class="stat">0.94</span>
+      <hr class="data-baseline">
+      <span class="evidence">held-out validation set</span>
+    </div>
+    <div class="block">
+      <span class="method-label">Screening time saved</span>
+      <span class="stat">62%</span>
+      <hr class="data-baseline">
+      <span class="evidence">vs. standard pathway</span>
+    </div>
+  </div>
+
+  <p class="citation">Source: Dugan et al., illustrative figures for system preview. Real assets cite the live dataset and method.</p>
+</body></html>

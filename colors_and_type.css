@@ -1,0 +1,267 @@
+/* =====================================================================
+   DR. CORY DUGAN — DESIGN TOKENS  ·  v3 "AUTHORITY"
+   Healthcare-AI + women's-health screening practice (consulting · tools · evidence).
+   Editorial, white-dominant, grape accent only. 35–40% whitespace minimum.
+   Authority is held by DATA RIGOR, not decoration.
+
+   SOURCE OF TRUTH — edit ONLY this file (and tokens.json beside it).
+   Every other surface (Claude Design, the website, Canva, Figma) inherits FROM here.
+   Locked constraints: grape #352051 · DM Serif Display + DM Sans · white-dominant.
+   ===================================================================== */
+
+/* Webfonts — DM Serif Display + DM Sans via Google Fonts. */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+
+:root {
+  /* -------------------------------------------------------------------
+     COLOR — base palette
+     ------------------------------------------------------------------- */
+
+  /* Brand grapes (used sparingly; never as page fills) */
+  --grape-900:   #1b112e;   /* deepest — used only for dense accents */
+  --grape-800:   #352051;   /* PRIMARY grape — links, numerals, key marks */
+  --grape-700:   #4a2f70;   /* secondary grape — hovers, mid-strength fills */
+  --grape-600:   #6b4f9e;   /* tertiary grape — illustration, chart secondary */
+  --grape-500:   #8a6fb8;   /* soft grape — chart/data tertiary */
+  --grape-200:   #d8cfe7;   /* v3: data-baseline rule under stats */
+  --grape-100:   #ece8f3;   /* whisper — chart fills + soft backgrounds */
+  --grape-050:   #f6f4fa;   /* barely-there tint */
+
+  /* Neutrals — the workhorses (90%+ of every layout) */
+  --ink-max:    #0B0B0C;   /* v3: near-black — decisive STAT displays only */
+  --ink-1000:   #1C1C1E;   /* body text, strong emphasis */
+  --ink-900:    #2A2A2D;   /* near-body */
+  --ink-700:    #4A4A4F;   /* secondary text */
+  --ink-500:    #797A80;   /* muted / meta / captions */
+  --ink-400:    #9CA0A6;   /* placeholder / disabled */
+  --ink-300:    #C8CACE;   /* hairlines (strong) */
+  --ink-200:    #E4E5E7;   /* hairlines (default) */
+  --ink-100:    #EFEFEF;   /* dividers, wash */
+  --ink-050:    #F7F7F6;   /* off-white surface */
+  --paper:      #FFFFFF;   /* canvas — the dominant surface */
+
+  /* Status / semantic — used only inside data viz + form states */
+  --status-up:      #4a2f70;   /* improvement — uses brand grape */
+  --status-down:    #B5524A;   /* decline — desaturated terracotta */
+  --status-warn:    #B58A3A;   /* monitoring — desaturated mustard */
+
+  /* v3: DATA-VIZ RAMP — formal, brand-inherited (no rainbow).
+     Sequential ramp (light→dark) for heatmaps/grad_bar fills: */
+  --dv-seq-1:  var(--grape-100);
+  --dv-seq-2:  var(--grape-500);
+  --dv-seq-3:  var(--grape-600);
+  --dv-seq-4:  var(--grape-800);
+  /* Categorical series (max 5 — discipline over variety): */
+  --dv-cat-1:  var(--grape-800);
+  --dv-cat-2:  var(--grape-500);
+  --dv-cat-3:  var(--ink-500);
+  --dv-cat-4:  var(--status-warn);
+  --dv-cat-5:  var(--status-down);
+
+  /* -------------------------------------------------------------------
+     SEMANTIC COLOR TOKENS  (reference these, not raw hex)
+     ------------------------------------------------------------------- */
+  --color-bg:           var(--paper);
+  --color-bg-soft:      var(--ink-050);
+  --color-bg-accent:    var(--grape-050);   /* rare; section dividers only */
+
+  --color-fg:           var(--ink-1000);
+  --color-fg-strong:    var(--ink-max);     /* v3: stat displays */
+  --color-fg-muted:     var(--ink-700);
+  --color-fg-subtle:    var(--ink-500);
+  --color-fg-faint:     var(--ink-400);
+  --color-fg-on-grape:  var(--paper);
+
+  --color-accent:       var(--grape-800);
+  --color-accent-hover: var(--grape-700);
+  --color-accent-soft:  var(--grape-600);
+
+  --color-border:       var(--ink-200);
+  --color-border-strong:var(--ink-300);
+  --color-rule:         var(--ink-100);
+  --color-data-baseline:var(--grape-200);   /* v3: rule under stat blocks */
+
+  --color-link:         var(--grape-800);
+  --color-link-hover:   var(--grape-700);
+
+  /* -------------------------------------------------------------------
+     TYPOGRAPHY — families
+     ------------------------------------------------------------------- */
+  --font-serif: 'DM Serif Display', 'Source Serif Pro', Georgia, 'Times New Roman', serif;
+  --font-sans:  'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono:  ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* -------------------------------------------------------------------
+     TYPE SCALE — editorial, generous (serif = display; sans = body/UI)
+     ------------------------------------------------------------------- */
+  --fs-display-xl:  clamp(3.25rem, 5.5vw, 5.25rem);   /* 52–84px — hero */
+  --fs-display-lg:  clamp(2.5rem, 4vw, 3.75rem);      /* 40–60px — section opener */
+  --fs-display-md:  clamp(2rem, 3vw, 2.75rem);        /* 32–44px */
+  --fs-display-sm:  clamp(1.625rem, 2vw, 2rem);       /* 26–32px */
+
+  --fs-stat:        clamp(2.5rem, 4vw, 3.75rem);      /* v3: tabular stat display */
+
+  --fs-heading-lg:  1.5rem;      /* 24px */
+  --fs-heading-md:  1.25rem;     /* 20px */
+  --fs-heading-sm:  1.0625rem;   /* 17px */
+
+  --fs-body-lg:     1.125rem;    /* 18px — service descriptions / lead */
+  --fs-body:        1rem;        /* 16px — default body */
+  --fs-body-sm:     0.9375rem;   /* 15px */
+  --fs-meta:        0.8125rem;   /* 13px — eyebrow, caption */
+  --fs-micro:       0.6875rem;   /* 11px — uppercase tags, method labels */
+
+  /* Line heights */
+  --lh-display:   1.05;
+  --lh-heading:   1.2;
+  --lh-body:      1.6;
+  --lh-tight:     1.3;
+
+  /* Letter spacing */
+  --tracking-display:  -0.02em;   /* tighten DM Serif for headlines */
+  --tracking-body:      0;
+  --tracking-eyebrow:   0.14em;   /* uppercase eyebrow */
+  --tracking-tag:       0.08em;
+  --tracking-method:    0.18em;   /* v3: small-caps method labels */
+
+  /* Font weights */
+  --fw-light:    300;
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  /* -------------------------------------------------------------------
+     SPACING — 4px base
+     ------------------------------------------------------------------- */
+  --space-0:0; --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px;
+  --space-5:20px; --space-6:24px; --space-8:32px; --space-10:40px; --space-12:48px;
+  --space-16:64px; --space-20:80px; --space-24:96px; --space-32:128px; --space-40:160px;
+
+  /* Section vertical rhythm */
+  --section-y:        clamp(72px, 9vw, 144px);
+  --section-y-tight:  clamp(48px, 6vw, 80px);
+
+  /* Container widths */
+  --container-narrow: 760px;     /* prose */
+  --container:        1120px;    /* default */
+  --container-wide:   1280px;
+  --gutter:           clamp(20px, 4vw, 48px);
+
+  /* -------------------------------------------------------------------
+     RADII — minimal. Editorial cards squared; soft chrome only on
+     interactive elements + data viz tiles.
+     ------------------------------------------------------------------- */
+  --radius-0:0; --radius-xs:2px; --radius-sm:4px; --radius-md:8px;
+  --radius-lg:12px; --radius-xl:16px; --radius-pill:999px;
+
+  /* BORDERS — hairlines do the heavy lifting */
+  --bw-hair:1px; --bw-rule:1px; --bw-strong:2px;
+
+  /* SHADOWS — extremely restrained. Cards lean on borders, not shadow. */
+  --shadow-0: none;
+  --shadow-xs: 0 1px 2px rgba(28, 28, 30, 0.04);
+  --shadow-sm: 0 2px 8px rgba(28, 28, 30, 0.05), 0 1px 2px rgba(28, 28, 30, 0.04);
+  --shadow-md: 0 8px 24px rgba(28, 28, 30, 0.06), 0 2px 6px rgba(28, 28, 30, 0.04);
+  --shadow-lg: 0 24px 48px rgba(28, 28, 30, 0.08), 0 4px 10px rgba(28, 28, 30, 0.04);
+
+  /* MOTION */
+  --ease-out:      cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:120ms; --dur-base:200ms; --dur-slow:320ms; --dur-slower:600ms;
+
+  /* Z-INDEX */
+  --z-base:1; --z-sticky:10; --z-nav:50; --z-overlay:100; --z-modal:200; --z-toast:300;
+}
+
+/* =====================================================================
+   SEMANTIC TYPE — drop-in helpers
+   ===================================================================== */
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--color-fg);
+  background: var(--color-bg);
+  font-weight: var(--fw-regular);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, .h1, .display-xl { font-family: var(--font-serif); font-size: var(--fs-display-xl); line-height: var(--lh-display); letter-spacing: var(--tracking-display); font-weight: var(--fw-regular); color: var(--color-fg); margin: 0; }
+h2, .h2, .display-lg { font-family: var(--font-serif); font-size: var(--fs-display-lg); line-height: var(--lh-display); letter-spacing: var(--tracking-display); font-weight: var(--fw-regular); color: var(--color-fg); margin: 0; }
+h3, .h3, .display-md { font-family: var(--font-serif); font-size: var(--fs-display-md); line-height: var(--lh-heading); letter-spacing: var(--tracking-display); font-weight: var(--fw-regular); color: var(--color-fg); margin: 0; }
+h4, .h4 { font-family: var(--font-sans); font-size: var(--fs-heading-lg); line-height: var(--lh-heading); font-weight: var(--fw-medium); letter-spacing: -0.005em; color: var(--color-fg); margin: 0; }
+h5, .h5 { font-family: var(--font-sans); font-size: var(--fs-heading-md); line-height: var(--lh-heading); font-weight: var(--fw-medium); color: var(--color-fg); margin: 0; }
+h6, .h6 { font-family: var(--font-sans); font-size: var(--fs-heading-sm); line-height: var(--lh-heading); font-weight: var(--fw-semibold); color: var(--color-fg); margin: 0; }
+
+/* Italic display variant — signature emphasis treatment
+   ("...translated into evidence that holds.") */
+.display-italic, em.display { font-style: italic; font-family: var(--font-serif); }
+
+p { font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-fg-muted); margin: 0 0 1em 0; text-wrap: pretty; }
+p.lead { font-size: var(--fs-body-lg); line-height: 1.55; color: var(--color-fg-muted); max-width: 60ch; }
+
+small, .meta { font-size: var(--fs-meta); color: var(--color-fg-subtle); }
+
+.eyebrow { font-family: var(--font-sans); font-size: var(--fs-meta); font-weight: var(--fw-medium); letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--color-accent); }
+.tag { font-family: var(--font-sans); font-size: var(--fs-micro); font-weight: var(--fw-medium); letter-spacing: var(--tracking-tag); text-transform: uppercase; color: var(--color-fg-subtle); }
+
+/* Service numerals "01 / 02 / 03" in serif italic grape */
+.numeral { font-family: var(--font-serif); font-style: italic; font-size: var(--fs-display-md); color: var(--color-accent); line-height: 1; letter-spacing: -0.01em; }
+
+/* ---------------------------------------------------------------------
+   v3 AUTHORITY SIGNATURE — the evidence/data voice
+   --------------------------------------------------------------------- */
+
+/* STAT — big tabular numerals, the credibility hero element */
+.stat {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-stat);
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  color: var(--color-fg-strong);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.stat--grape { color: var(--color-accent); }
+
+/* METHOD LABEL — small-caps tag that sits ABOVE data ("METHOD" / "n =" / "EVIDENCE") */
+.method-label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-micro);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-method);
+  text-transform: uppercase;
+  color: var(--color-fg-subtle);
+}
+
+/* DATA BASELINE — thin grape rule under a stat block (the "measured" mark) */
+.data-baseline { border: 0; border-top: var(--bw-strong) solid var(--color-data-baseline); width: 48px; margin: var(--space-3) 0 0; }
+
+/* EVIDENCE — mono voice for n=, p-values, CIs, model metrics (signals "measured, not asserted") */
+.evidence, .stat-meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-body-sm);
+  color: var(--color-fg-subtle);
+  letter-spacing: 0;
+}
+
+/* CITATION / FOOTNOTE — visible rigor */
+.citation { font-family: var(--font-sans); font-size: var(--fs-meta); color: var(--color-fg-subtle); line-height: var(--lh-tight); }
+.citation a { border-bottom: 1px dotted currentColor; }
+
+a { color: var(--color-link); text-decoration: none; border-bottom: 1px solid currentColor; transition: color var(--dur-fast) var(--ease-out); }
+a:hover { color: var(--color-link-hover); }
+
+code, pre, kbd { font-family: var(--font-mono); font-size: 0.875em; }
+
+hr { border: 0; border-top: var(--bw-hair) solid var(--color-rule); margin: var(--space-12) 0; }
+
+::selection { background: var(--grape-100); color: var(--color-fg); }

@@ -1,0 +1,67 @@
+<!-- @dsCard group="Components" name="Core components" subtitle="Buttons, data-tile, stat-bar, evidence block, comparison table" -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Components — drCWDugan v3</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{padding:var(--space-12) var(--space-10);max-width:960px;margin:0 auto}
+  h3{margin:var(--space-10) 0 var(--space-4)}
+  /* Buttons */
+  .btn{font-family:var(--font-sans);font-weight:var(--fw-medium);font-size:var(--fs-body-sm);
+       padding:var(--space-3) var(--space-6);border-radius:var(--radius-pill);border:1px solid transparent;cursor:pointer;text-decoration:none;display:inline-block}
+  .btn-primary{background:var(--grape-800);color:var(--paper)}
+  .btn-secondary{background:transparent;color:var(--grape-800);border-color:var(--color-border-strong)}
+  .btn-ghost{background:transparent;color:var(--grape-800);border:0;border-bottom:1px solid currentColor;border-radius:0;padding:var(--space-2) 0}
+  /* Data tile */
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--space-4)}
+  .tile{border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-xs)}
+  .tile .method-label{display:block;margin-bottom:var(--space-2)}
+  .tile .stat{display:block;font-size:var(--fs-display-sm)}
+  /* Stat bar */
+  .statbar{display:flex;gap:var(--space-10);padding:var(--space-6) 0;border-top:2px solid var(--ink-1000);border-bottom:1px solid var(--color-rule)}
+  .statbar .stat{font-size:var(--fs-display-sm)}
+  /* Evidence block */
+  .evblock{border-left:2px solid var(--grape-800);padding:var(--space-2) var(--space-6);background:var(--grape-050)}
+  /* Comparison table */
+  table{width:100%;border-collapse:collapse;font-size:var(--fs-body-sm)}
+  th,td{text-align:left;padding:var(--space-3) var(--space-4);border-bottom:1px solid var(--color-rule)}
+  thead th{font-family:var(--font-sans);font-weight:var(--fw-semibold);color:var(--color-fg);border-bottom:2px solid var(--ink-1000)}
+  td.yes{color:var(--grape-800);font-weight:600}
+  td.no{color:var(--ink-400)}
+</style></head>
+<body>
+  <p class="eyebrow">drCWDugan · v3 Authority</p>
+  <h2>Components</h2>
+
+  <h3 class="h4">Buttons</h3>
+  <a class="btn btn-primary" href="#">Book a consult</a>
+  <a class="btn btn-secondary" href="#">See the method</a>
+  <a class="btn btn-ghost" href="#">Read the evidence</a>
+
+  <h3 class="h4">Data tiles</h3>
+  <div class="tiles">
+    <div class="tile"><span class="method-label">Cohort</span><span class="stat">12,480</span></div>
+    <div class="tile"><span class="method-label">Detection ↑</span><span class="stat stat--grape">+38%</span></div>
+    <div class="tile"><span class="method-label">Pathway time</span><span class="stat">−62%</span></div>
+  </div>
+
+  <h3 class="h4">Stat bar</h3>
+  <div class="statbar">
+    <div><span class="method-label">Prevalence</span><br><span class="stat">1 in 3</span></div>
+    <div><span class="method-label">Model AUC</span><br><span class="stat">0.94</span></div>
+    <div><span class="method-label">Reports shipped</span><br><span class="stat">240+</span></div>
+  </div>
+
+  <h3 class="h4">Evidence block</h3>
+  <div class="evblock"><p>Functional iron deficiency was present in 1 in 3 screened women — a gap standard pathways missed in two-thirds of cases.</p><p class="evidence">n = 12,480 · p &lt; .001 · 95% CI [1.8, 2.4]</p></div>
+
+  <h3 class="h4">Comparison table</h3>
+  <table>
+    <thead><tr><th>Capability</th><th>Standard pathway</th><th>Screening-AI</th></tr></thead>
+    <tbody>
+      <tr><td>Detects functional ID</td><td class="no">Partial</td><td class="yes">Yes</td></tr>
+      <tr><td>Time to result</td><td class="no">Days</td><td class="yes">Minutes</td></tr>
+      <tr><td>Evidence-cited output</td><td class="no">No</td><td class="yes">Yes</td></tr>
+    </tbody>
+  </table>
+</body></html>

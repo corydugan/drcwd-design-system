@@ -21,7 +21,7 @@
 - **Consulting (organisations):** program design, evidence reviews, women's-health initiatives — wellness cos, health-tech, HR. "Quoted per project."
 - **Research & data analysis:** biostatistics, health-data pipelines, study design — research groups, pharma/biotech.
 - **Health-Screening AI consulting (the pivot):** canonical niche + ICP at `DR.CWD/Health-Screening Consulting/06082026 Niche + ICP CANONICAL_CD.md`; **IRON-5** demo (live, on LinkedIn) is the flagship product/proof. This is the direction the v3 "Authority" brand was built for.
-- **Proof points used:** 10+ yrs research · PhD UWA · 25+ publications · $850K+ funding · featured ABC Radio / BJSM / JAMA Network Open / Healio / MedPage.
+- **Proof points used:** 10+ yrs research · PhD UWA · 30+ publications · $850K+ funding · featured ABC Radio / BJSM / JAMA Network Open / Healio / MedPage. **⚠ Numbers defer to `DR.CWD/CANONICAL FACTS — drCWDugan (single source of truth)_CD.md` — verify there before quoting (screening reach = 3,000 women, NOT 10,000; pubs = 30+, NOT 25+).**
 
 ## 3. BRAND SYSTEM (how everything should look)
 - **Canonical:** `~/Documents/GitHub/drcwd-design-system/` (this repo) = v3 "Authority". Grape `#352051` + DM Serif Display/DM Sans, white-dominant editorial, evidence/stat motif, Δ delta logo. Live visual home: claude.ai/design id `27287049-8ee5-4962-95f4-24d9cde8f6de`.

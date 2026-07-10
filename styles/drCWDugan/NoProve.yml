@@ -1,0 +1,8 @@
+extends: substitution
+message: "Avoid '%s' — nothing is proven in science. Use the suggested alternative."
+level: warning
+ignorecase: true
+swap:
+  proven: demonstrated
+  proves: 'demonstrates|is associated with'
+  prove: 'demonstrate|evidence suggests'

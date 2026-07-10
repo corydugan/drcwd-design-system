@@ -1,0 +1,15 @@
+extends: existence
+message: "Diet-culture term '%s' — off-brand; reframe in evidence-based language."
+level: error
+ignorecase: true
+tokens:
+  - guilt-free
+  - cheat meal
+  - cheat day
+  - detox
+  - clean eating
+  - bikini body
+  - shredded
+  - burn fat
+  - quick fix
+  - flat tummy

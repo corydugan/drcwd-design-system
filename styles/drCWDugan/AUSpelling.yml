@@ -1,0 +1,14 @@
+extends: substitution
+message: "Use Australian spelling: '%s' -> '%s'."
+level: warning
+ignorecase: false
+swap:
+  color: colour
+  behavior: behaviour
+  organize: organise
+  optimize: optimise
+  analyze: analyse
+  center: centre
+  fiber: fibre
+  program(?!me): program
+  labor: labour

@@ -1,0 +1,6 @@
+extends: existence
+message: "drCWDugan voice: no exclamation marks — use a period."
+level: error
+nonword: true
+tokens:
+  - '!'

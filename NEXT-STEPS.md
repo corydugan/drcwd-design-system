@@ -60,7 +60,7 @@ PHASE 2 — GENERATE
 - [ ] **Next Phase 2 asset** (pick one): 
   - [ ] Landing page — book-a-call / capture-email for health-screening consulting (hero → proof/stats → offer → CTA → footer); deployable to drcorydugan.com via Netlify
   - [ ] Instagram templates — feed/carousel/story w/ editable copy slots → push via connected Buffer
-  - [ ] Clickable prototype — e.g. IRON-5 screener flow (onboarding → input → evidence-cited result)
+  - [ ] Clickable prototype, e.g. IRON RISK CHECK screener flow (onboarding → input → evidence-cited result). (Name note: "IRON-5" retired 2026-07-14, collides with the Vinge et al. instrument.)
 - [ ] **Retire the old copies** — delete/archive the old grape-v2 folder + old teal claude.ai project so there's genuinely one of everything
 
 ## 6. KEY DESIGN FACTS (so you don't re-derive)

@@ -19,7 +19,7 @@ Brand grape is **accent + ink only — never a page fill.** Neutrals carry 90%+ 
 | `--grape-600` `--grape-500` | `#6b4f9e` `#8a6fb8` | illustration, chart secondary/tertiary |
 | `--grape-200`→`050` | `#d8cfe7`→`#f6f4fa` | data baseline, chart fills, soft tints |
 | `--ink-max` | `#0B0B0C` | **v3** near-black — stat displays only |
-| `--ink-1000`/`700`/`500` | `#1C1C1E`/`#4A4A4F`/`#797A80` | body / secondary / muted |
+| `--ink-1000`/`700`/`500` | `#1C1C1E`/`#4A4A4F`/`#6E6F75` | body / secondary / muted (ink-500 darkened 2026-07-27 for WCAG AA: 4.28:1 → 5.01:1) |
 | `--ink-200` `--ink-100` `--ink-050` | `#E4E5E7` `#EFEFEF` `#F7F7F6` | hairlines / dividers / off-white |
 | `--paper` | `#FFFFFF` | canvas (dominant surface) |
 | `--status-up/down/warn` | `#4a2f70` `#B5524A` `#B58A3A` | data-viz + form states only |
@@ -54,7 +54,7 @@ Kept: hairline rules as structure · generous whitespace (35–40% min) · squar
 ## 5 · Voice
 First-person singular · **Australian English** · no emoji · no exclamation marks.
 Traits: authoritative · evidence-precise · plain-confident · **cites the number**.
-- **Do:** "One in three women is iron deficient — here's what the data shows." (em dashes welcome)
+- **Do:** "One in three women is iron deficient, and here's what the data shows." (⛔ **NO EM DASHES, ever.** Use commas, parentheses, or a full stop. This is a universal rule across every surface: brand copy, outreach, manuscripts, chat, filenames. This line previously read "em dashes welcome" and was the source of repeated leaks into outreach copy. Corrected 2026-07-27 to match `~/.claude/CLAUDE.md`.)
 - **Don't:** hedge, hype, diet-culture, or claim without a figure/source behind it.
 
 ## 6 · Layout rules

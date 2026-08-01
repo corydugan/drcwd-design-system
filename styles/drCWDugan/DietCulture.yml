@@ -1,5 +1,5 @@
 extends: existence
-message: "Diet-culture term '%s' — off-brand; reframe in evidence-based language."
+message: "Diet-culture term '%s'. Off-brand, reframe in evidence-based language."
 level: error
 ignorecase: true
 tokens:

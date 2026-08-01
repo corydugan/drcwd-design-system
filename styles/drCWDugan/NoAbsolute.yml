@@ -1,0 +1,7 @@
+extends: existence
+message: "Banned word '%s'. Avoid absolutes; state the effect and its uncertainty."
+level: error
+ignorecase: true
+tokens:
+  - '\babsolute\b'
+  - '\babsolutely\b'

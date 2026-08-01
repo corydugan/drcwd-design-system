@@ -1,0 +1,7 @@
+extends: existence
+message: "Banned word '%s'. Nothing is a fact in science writing. Say what the evidence shows."
+level: error
+ignorecase: true
+tokens:
+  - '\bfacts?\b'
+  - '\bfactual(ly)?\b'

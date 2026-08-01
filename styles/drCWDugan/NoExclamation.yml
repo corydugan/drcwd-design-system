@@ -1,5 +1,5 @@
 extends: existence
-message: "drCWDugan voice: no exclamation marks — use a period."
+message: "drCWDugan voice: no exclamation marks. Use a full stop."
 level: error
 nonword: true
 tokens:

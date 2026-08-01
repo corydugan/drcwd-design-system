@@ -1,5 +1,5 @@
 extends: substitution
-message: "Avoid '%s' — nothing is proven in science. Use the suggested alternative."
+message: "Use '%s' instead of '%s'. Nothing is settled beyond doubt in science."
 level: warning
 ignorecase: true
 swap:

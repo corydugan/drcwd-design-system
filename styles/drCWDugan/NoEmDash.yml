@@ -1,0 +1,7 @@
+extends: existence
+message: "No em dashes or en dashes in prose. Use a comma, parentheses, or a full stop."
+level: error
+nonword: true
+tokens:
+  - '—'
+  - '–'

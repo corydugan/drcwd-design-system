@@ -1,5 +1,5 @@
 extends: substitution
-message: "Use Australian spelling: '%s' -> '%s'."
+message: "Australian spelling: use '%s' (found '%s')."
 level: warning
 ignorecase: false
 swap:

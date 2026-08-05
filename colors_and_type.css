@@ -59,6 +59,26 @@
   --dv-cat-5:  var(--status-down);
 
   /* -------------------------------------------------------------------
+     SURFACE LAYER (added 2026-08-05) — TWO PEER SURFACES, not a dark "mode".
+     Paper is the default and stays the workhorse. Ink is a full peer, used
+     when the message wants weight rather than clinical calm.
+     A component never hard-codes a colour: it reads --surface-* and inherits
+     whichever surface it was placed on. Set the surface on the card root:
+         <div class="slide">                  paper (default)
+         <div class="slide" data-surface="ink">
+     Note grape is STILL never a page fill. The ink field is ink-max, not grape.
+     ------------------------------------------------------------------- */
+  --surface:            var(--paper);      /* the field                     */
+  --surface-fg:         var(--ink-1000);   /* headline / primary text       */
+  --surface-fg-muted:   var(--ink-700);    /* labels, body, citations       */
+  --surface-fg-subtle:  var(--ink-500);    /* micro-caps, meta              */
+  --surface-rule:       var(--ink-200);    /* hairline dividers             */
+  --surface-eyebrow:    var(--grape-700);  /* tracked micro-caps kicker     */
+  --surface-stroke:     var(--grape-600);  /* load-bearing line art         */
+  --surface-accent:     var(--grape-800);  /* the ONE solid element         */
+  --surface-on-accent:  var(--paper);      /* text reversed out of accent   */
+
+  /* -------------------------------------------------------------------
      SEMANTIC COLOR TOKENS  (reference these, not raw hex)
      ------------------------------------------------------------------- */
   --color-bg:           var(--paper);
@@ -173,6 +193,23 @@
 
   /* Z-INDEX */
   --z-base:1; --z-sticky:10; --z-nav:50; --z-overlay:100; --z-modal:200; --z-toast:300;
+}
+
+
+/* Ink surface. Contrast against #0B0B0C, all measured:
+   fg 19.66:1 · fg-muted 15.59:1 · fg-subtle 11.97:1 · stroke 15.59:1
+   accent 4.72:1 · on-accent (white on grape-500) 4.16:1 — LARGE TEXT ONLY
+   (>=24px or >=18.66px bold). Never set small text in --surface-on-accent. */
+[data-surface="ink"] {
+  --surface:            var(--ink-max);    /* #0B0B0C */
+  --surface-fg:         var(--paper);
+  --surface-fg-muted:   var(--ink-200);
+  --surface-fg-subtle:  var(--ink-300);
+  --surface-rule:       var(--ink-900);
+  --surface-eyebrow:    var(--grape-500);
+  --surface-stroke:     var(--ink-200);
+  --surface-accent:     var(--grape-500);
+  --surface-on-accent:  var(--paper);
 }
 
 /* =====================================================================

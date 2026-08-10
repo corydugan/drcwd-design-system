@@ -18,14 +18,37 @@ Brand grape is **accent + ink only — never a page fill.** Neutrals carry 90%+ 
 | `--grape-700` | `#4a2f70` | hovers, mid-strength fills |
 | `--grape-600` `--grape-500` | `#6b4f9e` `#8a6fb8` | illustration, chart secondary/tertiary |
 | `--grape-200`→`050` | `#d8cfe7`→`#f6f4fa` | data baseline, chart fills, soft tints |
-| `--ink-max` | `#0B0B0C` | **v3** near-black — stat displays only |
+| `--ink-max` | `#0B0B0C` | **v3** near-black. The **ink surface** field (§1b), and stat displays on paper. Not stats only. |
 | `--ink-1000`/`700`/`500` | `#1C1C1E`/`#4A4A4F`/`#6E6F75` | body / secondary / muted (ink-500 darkened 2026-07-27 for WCAG AA: 4.28:1 → 5.01:1) |
 | `--ink-200` `--ink-100` `--ink-050` | `#E4E5E7` `#EFEFEF` `#F7F7F6` | hairlines / dividers / off-white |
-| `--paper` | `#FFFFFF` | canvas (dominant surface) |
+| `--paper` | `#FFFFFF` | the **paper surface** field (§1b). Default and workhorse, and a peer of ink. |
 | `--status-up/down/warn` | `#4a2f70` `#B5524A` `#B58A3A` | data-viz + form states only |
 
 **Data-viz ramp (v3):** categorical = grape-800 · grape-500 · ink-500 · warn · down. Sequential = grape-100 → grape-500 → grape-600 → grape-800. Charts inherit the brand; no rainbow.
 **Gradient:** none, by design.
+
+## 1b · Surfaces (added 2026-08-05)
+**Two peer surfaces. Not a light mode and a dark mode.** Documented here 2026-08-10; the layer had lived only in `colors_and_type.css` and `tokens.json`, and this file still called paper "the dominant surface".
+
+- **paper** `#FFFFFF` — the default and still the workhorse. Clinical, calm, what evidence-led work is set on.
+- **ink** `#0B0B0C` — a full peer. Reach for it when the message wants weight rather than calm: a hook, a quote, a launch, one hard claim.
+
+A component never hard-codes a colour. It reads `--surface-*` and inherits whatever surface it sits on. Set the surface on the card root: `<div class="slide">` is paper, `<div class="slide" data-surface="ink">` is ink.
+
+| token | paper | ink | role |
+|---|---|---|---|
+| `--surface` | `--paper` | `--ink-max` | the field |
+| `--surface-fg` | `--ink-1000` | `--paper` | headline, primary text |
+| `--surface-fg-muted` | `--ink-700` | `--ink-200` | labels, body, citations |
+| `--surface-fg-subtle` | `--ink-500` | `--ink-300` | micro-caps, meta |
+| `--surface-rule` | `--ink-200` | `--ink-900` | hairline dividers |
+| `--surface-eyebrow` | `--grape-700` | `--grape-500` | tracked micro-caps kicker |
+| `--surface-stroke` | `--grape-600` | `--ink-200` | load-bearing line art |
+| `--surface-accent` | `--grape-800` | `--grape-500` | the ONE solid element |
+| `--surface-on-accent` | `--paper` | `--paper` | text reversed out of accent |
+
+Grape is still never a page fill. The dark field is `ink-max`, not grape.
+**Contrast on ink `#0B0B0C`, measured:** fg 19.66:1 · fg-muted 15.59:1 · fg-subtle 11.97:1 · stroke 15.59:1 · accent 4.72:1. White on `--surface-on-accent` is **4.16:1**, so it is LARGE TEXT ONLY (≥24px, or ≥18.66px bold). Never set small text in it.
 
 ## 2 · Typography
 - **Serif** DM Serif Display — display/headlines + signature italic emphasis.

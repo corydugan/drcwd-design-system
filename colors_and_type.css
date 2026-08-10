@@ -28,7 +28,8 @@
   --grape-050:   #f6f4fa;   /* barely-there tint */
 
   /* Neutrals — the workhorses (90%+ of every layout) */
-  --ink-max:    #0B0B0C;   /* v3: near-black — decisive STAT displays only */
+  --ink-max:    #0B0B0C;   /* the INK SURFACE field, and stat displays on paper.
+                              NOT stats only: ink is a peer surface since 2026-08-05. */
   --ink-1000:   #1C1C1E;   /* body text, strong emphasis */
   --ink-900:    #2A2A2D;   /* near-body */
   --ink-700:    #4A4A4F;   /* secondary text */
@@ -38,7 +39,8 @@
   --ink-200:    #E4E5E7;   /* hairlines (default) */
   --ink-100:    #EFEFEF;   /* dividers, wash */
   --ink-050:    #F7F7F6;   /* off-white surface */
-  --paper:      #FFFFFF;   /* canvas — the dominant surface */
+  --paper:      #FFFFFF;   /* the PAPER SURFACE field. Default and workhorse,
+                              and a peer of ink rather than the only canvas. */
 
   /* Status / semantic — used only inside data viz + form states */
   --status-up:      #4a2f70;   /* improvement — uses brand grape */

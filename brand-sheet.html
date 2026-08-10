@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>drCWDugan Brand System v3 Authority — canon as at repo 759ec62</title>
+
+<!-- THE CANON ITSELF. Not a copy, not a retype. If this file changes, this sheet changes. -->
+<link rel="stylesheet" href="file:///Users/corydugan/Documents/GitHub/drcwd-design-system/colors_and_type.css">
+
+<style>
+  @page { size: A4; margin: 13mm 14mm 11mm; }
+
+  body { background: var(--paper); }
+  .page { page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+
+  .sheet-head { display:flex; justify-content:space-between; align-items:baseline;
+                border-bottom: var(--bw-strong) solid var(--color-accent);
+                padding-bottom: var(--space-2); margin-bottom: var(--space-6); }
+  .sheet-head .tag { color: var(--color-fg-subtle); }
+
+  h2.sec { font-size: 22px; margin-top: var(--space-6); }
+  .sec:first-of-type { margin-top: 0; }
+  .rule { border:0; border-top: var(--bw-hair) solid var(--color-border);
+          margin: var(--space-5) 0; }
+
+  /* swatches */
+  .swatches { display:grid; grid-template-columns: repeat(4, 1fr);
+              gap: var(--space-3); margin-top: var(--space-4); }
+  .sw { border: var(--bw-hair) solid var(--color-border); }
+  .sw .chip { height: 30px; }
+  .sw .lab { padding: 5px var(--space-2) var(--space-2); }
+  .sw .name { font-family: var(--font-mono); font-size: var(--fs-micro);
+              color: var(--color-fg); display:block; }
+  .sw .hex  { font-family: var(--font-mono); font-size: var(--fs-micro);
+              color: var(--color-fg-subtle); display:block; }
+  .sw .use  { font-size: 10px; color: var(--color-fg-subtle);
+              display:block; margin-top: 2px; line-height:1.3; }
+
+  /* the two peer surfaces */
+  .peers { display:grid; grid-template-columns: 1fr 1fr; gap: var(--space-5);
+           margin-top: var(--space-5); }
+  .card { background: var(--surface); color: var(--surface-fg);
+          border: var(--bw-hair) solid var(--surface-rule); padding: var(--space-6); }
+  .card .eyebrow { color: var(--surface-eyebrow); }
+  .card h3 { color: var(--surface-fg); font-size: var(--fs-display-sm); }
+  .card p  { color: var(--surface-fg-muted); }
+  .card .method-label { color: var(--surface-fg-subtle); }
+  .card .stat { color: var(--surface-fg); }
+  .card .data-baseline { border-top-color: var(--surface-accent); }
+  .card .solid { background: var(--surface-accent); color: var(--surface-on-accent);
+                 padding: var(--space-3) var(--space-5); display:inline-block;
+                 font-size: var(--fs-heading-md); font-weight: var(--fw-medium);
+                 margin-top: var(--space-5); }
+
+  /* type specimens */
+  .spec { display:grid; grid-template-columns: 150px 1fr; gap: var(--space-5);
+          align-items:baseline; padding: var(--space-2) 0;
+          border-bottom: var(--bw-hair) solid var(--color-rule); }
+  .spec .k { font-family: var(--font-mono); font-size: var(--fs-micro);
+             color: var(--color-fg-subtle); }
+  .demo-xl { font-family: var(--font-serif); font-size: 32px; line-height: var(--lh-display);
+             letter-spacing: var(--tracking-display); }
+  .demo-lg { font-family: var(--font-serif); font-size: 25px; line-height: var(--lh-display);
+             letter-spacing: var(--tracking-display); }
+  .demo-md { font-family: var(--font-serif); font-size: 23px; line-height: var(--lh-heading); }
+
+  table.grid { width:100%; border-collapse: collapse; margin-top: var(--space-4); }
+  table.grid th, table.grid td { text-align:left; padding: 5px var(--space-3);
+        border-bottom: var(--bw-hair) solid var(--color-rule);
+        font-size: var(--fs-body-sm); color: var(--color-fg-muted); vertical-align: top; }
+  table.grid th { font-size: var(--fs-micro); letter-spacing: var(--tracking-tag);
+        text-transform: uppercase; color: var(--color-fg-subtle);
+        border-bottom-color: var(--color-border-strong); }
+  table.grid td.mono { font-family: var(--font-mono); color: var(--color-fg); white-space:nowrap; }
+
+  .do-dont { display:grid; grid-template-columns:1fr 1fr; gap: var(--space-6);
+             margin-top: var(--space-5); }
+  .do-dont div { border-left: var(--bw-strong) solid var(--color-border-strong);
+                 padding-left: var(--space-4); }
+  .do-dont .yes { border-left-color: var(--color-accent); }
+  .do-dont ul { margin:0; padding-left: 1.1em; }
+  .do-dont li { font-size: var(--fs-body-sm); color: var(--color-fg-muted);
+                line-height:1.55; margin-bottom: var(--space-2); }
+
+  .radii { display:flex; gap: var(--space-4); align-items:flex-end; margin-top: var(--space-5); }
+  .radii div { width:66px; height:46px; background: var(--grape-050);
+               border: var(--bw-hair) solid var(--color-accent-soft);
+               display:flex; align-items:flex-end; justify-content:center;
+               font-family: var(--font-mono); font-size: var(--fs-micro);
+               color: var(--color-fg-subtle); padding-bottom:4px; }
+
+  .note { background: var(--color-bg-soft); border-left: var(--bw-strong) solid var(--status-warn);
+          padding: var(--space-3) var(--space-4); margin-top: var(--space-5); }
+  .note p { margin-bottom: var(--space-2); font-size: var(--fs-body-sm); }
+  .note p:last-child { margin-bottom:0; }
+</style>
+</head>
+<body>
+
+<!-- ============================ PAGE 1 ============================ -->
+<section class="page">
+  <div class="sheet-head">
+    <span class="eyebrow">drCWDugan brand system</span>
+    <span class="tag">v3 Authority · repo 759ec62 · 10 Aug 2026</span>
+  </div>
+
+  <span class="eyebrow">Canon</span>
+  <h1 style="font-size:34px">Authority is held by data rigour,<br><em class="display">not decoration.</em></h1>
+  <p class="lead" style="margin-top:var(--space-4)">Grape as ink and accent only, never a page fill.
+     DM Serif Display over DM Sans. Neutrals carry ninety percent of every layout, and at
+     least 35 percent of the page stays empty.</p>
+
+  <hr class="rule">
+
+  <h2 class="sec">1 · Colour</h2>
+  <p style="max-width:64ch">Locked constraint: grape <span class="evidence">#352051</span>.
+     Everything below is read from <span class="evidence">colors_and_type.css</span> at render time.</p>
+
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:var(--grape-900)"></div>
+      <div class="lab"><span class="name">--grape-900</span><span class="hex">#1b112e</span>
+      <span class="use">dense accents only</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--grape-800)"></div>
+      <div class="lab"><span class="name">--grape-800</span><span class="hex">#352051</span>
+      <span class="use">PRIMARY. Links, numerals, key marks</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--grape-700)"></div>
+      <div class="lab"><span class="name">--grape-700</span><span class="hex">#4a2f70</span>
+      <span class="use">hovers, mid fills, eyebrow</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--grape-600)"></div>
+      <div class="lab"><span class="name">--grape-600</span><span class="hex">#6b4f9e</span>
+      <span class="use">load-bearing line art</span></div></div>
+
+    <div class="sw"><div class="chip" style="background:var(--grape-500)"></div>
+      <div class="lab"><span class="name">--grape-500</span><span class="hex">#8a6fb8</span>
+      <span class="use">chart tertiary, ink-surface accent</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--grape-200)"></div>
+      <div class="lab"><span class="name">--grape-200</span><span class="hex">#d8cfe7</span>
+      <span class="use">the data-baseline rule</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--grape-100)"></div>
+      <div class="lab"><span class="name">--grape-100</span><span class="hex">#ece8f3</span>
+      <span class="use">chart fills, soft ground</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--grape-050)"></div>
+      <div class="lab"><span class="name">--grape-050</span><span class="hex">#f6f4fa</span>
+      <span class="use">barely-there tint</span></div></div>
+  </div>
+
+  <div class="swatches" style="margin-top:var(--space-5)">
+    <div class="sw"><div class="chip" style="background:var(--ink-max)"></div>
+      <div class="lab"><span class="name">--ink-max</span><span class="hex">#0B0B0C</span>
+      <span class="use">the ink SURFACE, and stat displays</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--ink-1000)"></div>
+      <div class="lab"><span class="name">--ink-1000</span><span class="hex">#1C1C1E</span>
+      <span class="use">body, strong emphasis</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--ink-700)"></div>
+      <div class="lab"><span class="name">--ink-700</span><span class="hex">#4A4A4F</span>
+      <span class="use">secondary text, citations</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--ink-500)"></div>
+      <div class="lab"><span class="name">--ink-500</span><span class="hex">#6E6F75</span>
+      <span class="use">muted, meta. Darkened for WCAG AA</span></div></div>
+
+    <div class="sw"><div class="chip" style="background:var(--ink-200)"></div>
+      <div class="lab"><span class="name">--ink-200</span><span class="hex">#E4E5E7</span>
+      <span class="use">default hairline</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--ink-050)"></div>
+      <div class="lab"><span class="name">--ink-050</span><span class="hex">#F7F7F6</span>
+      <span class="use">off-white surface</span></div></div>
+    <div class="sw"><div class="chip" style="background:var(--paper); border-bottom:1px solid var(--color-border)"></div>
+      <div class="lab"><span class="name">--paper</span><span class="hex">#FFFFFF</span>
+      <span class="use">the paper SURFACE. The workhorse</span></div></div>
+    <div class="sw"><div class="chip" style="background:linear-gradient(90deg,var(--status-up) 0 33%,var(--status-warn) 33% 66%,var(--status-down) 66% 100%)"></div>
+      <div class="lab"><span class="name">--status-up/warn/down</span><span class="hex">#4a2f70 · #B58A3A · #B5524A</span>
+      <span class="use">data viz and form states ONLY</span></div></div>
+  </div>
+
+  <p style="margin-top:var(--space-4);font-size:var(--fs-body-sm)">
+     <strong>Data-viz ramp.</strong> Categorical, maximum five:
+     grape-800, grape-500, ink-500, warn, down. Sequential: grape-100 to grape-500 to
+     grape-600 to grape-800. Charts inherit the brand. No rainbow, and no gradient anywhere by design.</p>
+</section>
+
+<!-- ============================ PAGE 2 ============================ -->
+<section class="page">
+  <div class="sheet-head">
+    <span class="eyebrow">2 · The surface layer</span>
+    <span class="tag">added 5 Aug 2026</span>
+  </div>
+
+  <h2 class="sec" style="margin-top:0">Two peer surfaces. Not a light mode and a dark mode.</h2>
+  <p class="lead">A component never hard-codes a colour. It reads <span class="evidence">--surface-*</span>
+     and inherits whichever surface it was placed on. The surface is set on the card root.</p>
+
+  <div class="peers">
+    <div class="card">
+      <span class="eyebrow">Paper</span>
+      <h3 style="margin-top:var(--space-3)">The default, and still the workhorse.</h3>
+      <p style="margin-top:var(--space-4)">Clinical, calm. What evidence-led work is set on.</p>
+      <div class="method-label" style="margin-top:var(--space-6)">n =</div>
+      <div class="stat" style="font-size:38px">1 in 3</div>
+      <hr class="data-baseline">
+      <div class="evidence" style="margin-top:var(--space-3)">p &lt; .001 · 95% CI 1.4, 2.1</div>
+      <span class="solid">the ONE solid element</span>
+    </div>
+
+    <div class="card" data-surface="ink">
+      <span class="eyebrow">Ink</span>
+      <h3 style="margin-top:var(--space-3)">A full peer. Reach for weight, not calm.</h3>
+      <p style="margin-top:var(--space-4)">A hook, a quote, a launch, one hard claim.</p>
+      <div class="method-label" style="margin-top:var(--space-6)">n =</div>
+      <div class="stat" style="font-size:44px">1 in 3</div>
+      <hr class="data-baseline">
+      <div class="evidence" style="margin-top:var(--space-3)">p &lt; .001 · 95% CI 1.4, 2.1</div>
+      <span class="solid">LARGE TEXT ONLY</span>
+    </div>
+  </div>
+
+  <div class="note">
+    <p><strong>Contrast, measured on the ink field #0B0B0C.</strong></p>
+    <p class="evidence">fg 19.66:1 · fg-muted 15.59:1 · fg-subtle 11.97:1 · stroke 15.59:1 · accent 4.72:1</p>
+    <p>White on <span class="evidence">--surface-on-accent</span> is <strong>4.16:1</strong>, so it is
+       large text only, meaning 24px or more, or 18.66px bold or more. Never set small text in it.</p>
+  </div>
+
+</section>
+
+<section class="page">
+  <div class="sheet-head">
+    <span class="eyebrow">2b · The surface tokens</span>
+    <span class="tag">a component reads these, never a raw hex</span>
+  </div>
+
+  <h2 class="sec" style="margin-top:0">The surface tokens</h2>
+  <table class="grid">
+    <tr><th>token</th><th>paper</th><th>ink</th><th>role</th></tr>
+    <tr><td class="mono">--surface</td><td class="mono">--paper</td><td class="mono">--ink-max</td><td>the field</td></tr>
+    <tr><td class="mono">--surface-fg</td><td class="mono">--ink-1000</td><td class="mono">--paper</td><td>headline, primary text</td></tr>
+    <tr><td class="mono">--surface-fg-muted</td><td class="mono">--ink-700</td><td class="mono">--ink-200</td><td>labels, body, citations</td></tr>
+    <tr><td class="mono">--surface-fg-subtle</td><td class="mono">--ink-500</td><td class="mono">--ink-300</td><td>micro-caps, meta</td></tr>
+    <tr><td class="mono">--surface-rule</td><td class="mono">--ink-200</td><td class="mono">--ink-900</td><td>hairline dividers</td></tr>
+    <tr><td class="mono">--surface-eyebrow</td><td class="mono">--grape-700</td><td class="mono">--grape-500</td><td>tracked micro-caps kicker</td></tr>
+    <tr><td class="mono">--surface-stroke</td><td class="mono">--grape-600</td><td class="mono">--ink-200</td><td>load-bearing line art</td></tr>
+    <tr><td class="mono">--surface-accent</td><td class="mono">--grape-800</td><td class="mono">--grape-500</td><td>the ONE solid element</td></tr>
+    <tr><td class="mono">--surface-on-accent</td><td class="mono">--paper</td><td class="mono">--paper</td><td>text reversed out of accent</td></tr>
+  </table>
+
+  <p style="margin-top:var(--space-6);font-size:var(--fs-body-sm)">
+     Grape is still never a page fill. The dark field is <span class="evidence">ink-max</span>, not grape.</p>
+</section>
+
+<!-- ============================ PAGE 3 ============================ -->
+<section class="page">
+  <div class="sheet-head">
+    <span class="eyebrow">3 · Typography</span>
+    <span class="tag">DM Serif Display · DM Sans · ui-monospace</span>
+  </div>
+
+  <div class="spec"><span class="k">display-xl<br>serif · 52-84px</span>
+    <span class="demo-xl">Iron deficiency, measured</span></div>
+  <div class="spec"><span class="k">display-lg<br>serif · 40-60px</span>
+    <span class="demo-lg">Screening that holds up</span></div>
+  <div class="spec"><span class="k">display italic<br>the signature</span>
+    <span class="demo-md" style="font-style:italic;color:var(--color-accent)">translated into evidence that holds</span></div>
+  <div class="spec"><span class="k">h4 · sans 24px<br>weight 500</span>
+    <span style="font-size:21px;font-weight:500">A sans heading, medium weight</span></div>
+  <div class="spec"><span class="k">body · 16px<br>line-height 1.6</span>
+    <span>Default body copy sits in DM Sans at sixteen pixels with a line height of 1.6, and paragraphs are set in ink-700 rather than full black.</span></div>
+  <div class="spec"><span class="k">eyebrow<br>13px · 0.14em</span>
+    <span class="eyebrow">Uppercase eyebrow, tracked</span></div>
+  <div class="spec"><span class="k">tag<br>11px · 0.08em</span>
+    <span class="tag">Uppercase tag</span></div>
+  <div class="spec"><span class="k">numeral<br>serif italic grape</span>
+    <span class="numeral">01 / 02 / 03</span></div>
+  <div class="spec"><span class="k">evidence<br>mono</span>
+    <span class="evidence">n = 1,247 · p &lt; .001 · AUC 0.83</span></div>
+
+  <h2 class="sec">Rules that are easy to get wrong</h2>
+  <table class="grid">
+    <tr><th>setting</th><th>value</th><th>why</th></tr>
+    <tr><td>display tracking</td><td class="mono">-0.02em</td><td>DM Serif reads loose at size</td></tr>
+    <tr><td>body line-height</td><td class="mono">1.6</td><td>editorial breathing room</td></tr>
+    <tr><td>method-label tracking</td><td class="mono">0.18em</td><td>small-caps above data</td></tr>
+    <tr><td>stat numerals</td><td class="mono">tabular-nums lining-nums</td><td>columns of figures must align</td></tr>
+    <tr><td>evidence units</td><td class="mono">.nowrap</td><td>"p &lt; .001" must never break across lines</td></tr>
+    <tr><td>heading margins</td><td class="mono">0</td><td>layouts own spacing, not headings</td></tr>
+  </table>
+</section>
+
+<!-- ============================ PAGE 4 ============================ -->
+<section class="page">
+  <div class="sheet-head">
+    <span class="eyebrow">4 · Layout, motif, voice</span>
+    <span class="tag">the evidence signature</span>
+  </div>
+
+  <h2 class="sec" style="margin-top:0">Containers and rhythm</h2>
+  <table class="grid">
+    <tr><th>token</th><th>value</th><th>use</th></tr>
+    <tr><td class="mono">--container-narrow</td><td class="mono">760px</td><td>prose</td></tr>
+    <tr><td class="mono">--container</td><td class="mono">1120px</td><td>default</td></tr>
+    <tr><td class="mono">--container-wide</td><td class="mono">1280px</td><td>wide</td></tr>
+    <tr><td class="mono">--gutter</td><td class="mono">clamp(20px, 4vw, 48px)</td><td>page edge</td></tr>
+    <tr><td class="mono">--section-y</td><td class="mono">clamp(72px, 9vw, 144px)</td><td>section rhythm</td></tr>
+    <tr><td class="mono">--space-*</td><td class="mono">4px base, 1 to 40</td><td>everything else</td></tr>
+  </table>
+
+  <h2 class="sec">Radii, borders, shadow</h2>
+  <div class="radii">
+    <div style="border-radius:var(--radius-0)">0 default</div>
+    <div style="border-radius:var(--radius-md)">8 tiles</div>
+    <div style="border-radius:var(--radius-lg)">12</div>
+    <div style="border-radius:var(--radius-xl)">16</div>
+    <div style="border-radius:var(--radius-pill)">999 pill</div>
+  </div>
+  <p style="margin-top:var(--space-5);font-size:var(--fs-body-sm)">
+     Squared by default, because the cards are editorial. Soft chrome is for interactive
+     elements and data tiles only. Hairlines do the heavy lifting at 1px, strong at 2px.
+     Shadows stay extremely restrained: cards lean on borders, not shadow.</p>
+
+  <h2 class="sec">The motif</h2>
+  <p style="max-width:66ch">Hairline rules as structure, whitespace at 35 to 40 percent, squared
+     editorial cards, serif-italic grape numerals. On top: evidence on display. Tabular stat blocks
+     as hero elements, a small-caps method label above the data, a thin grape data-baseline rule
+     under the stat, and a citation style that makes the rigour visible.</p>
+
+  <h2 class="sec">Voice</h2>
+  <p>First person singular. Australian spelling in this lane. Authoritative, evidence-precise,
+     plain-confident, and it cites the number.</p>
+  <div class="do-dont">
+    <div class="yes">
+      <span class="tag" style="color:var(--color-accent)">Do</span>
+      <ul>
+        <li>"One in three women is iron deficient, and here is what the data shows."</li>
+        <li>Put a figure or a source behind every claim.</li>
+        <li>Use a comma, parentheses, or a full stop.</li>
+      </ul>
+    </div>
+    <div>
+      <span class="tag">Never</span>
+      <ul>
+        <li>Em dashes. Anywhere, on any surface, including filenames.</li>
+        <li>Emoji. Exclamation marks.</li>
+        <li>Hedging, hype, diet-culture framing, or a claim with no number.</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<section class="page">
+  <div class="sheet-head">
+    <span class="eyebrow">5 · Imagery and provenance</span>
+    <span class="tag">where this sheet came from</span>
+  </div>
+
+  <h2 class="sec" style="margin-top:0">Imagery</h2>
+  <p style="max-width:66ch">Documentary-real, natural light, desaturated-warm. Founder in context,
+     talks, panels, lab, plus clean screening and data detail. No stock gloss, no AI faces. Generated
+     images are abstract data or organic forms only, never synthetic people.</p>
+
+  <div class="note">
+    <p><strong>Provenance.</strong> Rendered 10 Aug 2026 directly from
+       <span class="evidence">~/Documents/GitHub/drcwd-design-system/colors_and_type.css</span>
+       at commit <span class="evidence">759ec62</span>, linked live rather than copied.</p>
+    <p><strong>Drift closed 10 Aug 2026.</strong> Until today
+       <span class="evidence">README.md</span> and the two colour descriptions in
+       <span class="evidence">tokens.json</span> still called paper the dominant surface and
+       ink-max stat displays only, and <span class="evidence">tokens.json</span> carried
+       <span class="evidence">--ink-500 #797A80</span> where the CSS carried
+       <span class="evidence">#6E6F75</span>, which is the value Figma imports. All three files
+       now agree: <strong>ink is a peer surface, not a stat colour</strong>. Verified by diffing
+       every colour token, 22 of 22, zero mismatches.</p>
+  </div>
+</section>
+
+</body>
+</html>

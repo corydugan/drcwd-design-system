@@ -224,4 +224,4 @@ PI insurance before signing          standard   ⛔ REQUIRED  ⛔ REQUIRED
 
 ---
 
-*Prices, stats and credentials defer to `CANONICAL FACTS — drCWDugan (single source of truth)_CD.md`. Leads defer to `leads.json`, which is ⚠ unwritten since 2026-07-14, so check the master tracker for current state. Brand voice: Australian English, first-person singular, no emoji, no exclamation marks, NO EM DASHES anywhere.*
+*Prices, stats and credentials: publications and research stats come from ORCID and Zotero. (The former `CANONICAL FACTS` file was DELETED 2026-08-08 after it drifted; do not reinstate a second copy.) Leads defer to `leads.json`, which is ⚠ unwritten since 2026-07-14, so check the master tracker for current state. Brand voice: Australian English, first-person singular, no emoji, no exclamation marks, NO EM DASHES anywhere.*

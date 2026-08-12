@@ -1,33 +1,37 @@
 /* =====================================================================
-   DR. CORY DUGAN — DESIGN TOKENS  ·  v3 "AUTHORITY"
+   DR. CORY DUGAN: DESIGN TOKENS  ·  v3 "AUTHORITY"
    Healthcare-AI + women's-health screening practice (consulting · tools · evidence).
    Editorial, white-dominant, grape accent only. 35–40% whitespace minimum.
    Authority is held by DATA RIGOR, not decoration.
 
-   SOURCE OF TRUTH — edit ONLY this file (and tokens.json beside it).
+   SOURCE OF TRUTH: edit ONLY this file (and tokens.json beside it).
    Every other surface (Claude Design, the website, Canva, Figma) inherits FROM here.
-   Locked constraints: grape #352051 · DM Serif Display + DM Sans · white-dominant.
+   Locked constraints: grape #352051 · Instrument Serif + DM Sans + IBM Plex Sans
+   figures · white-dominant.
    ===================================================================== */
 
-/* Webfonts — DM Serif Display + DM Sans via Google Fonts. */
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+/* Webfonts for the WEB. Rendered assets must pin local TTFs instead: a network
+   fetch inside a screenshot pipeline is a race condition. Local OFL copies of
+   Instrument Serif and IBM Plex ship with the canvas-design skill at
+   ~/.claude/plugins/cache/anthropic-agent-skills/example-skills/*/skills/canvas-design/canvas-fonts/ */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 
 :root {
   /* -------------------------------------------------------------------
-     COLOR — base palette
+     COLOR: base palette
      ------------------------------------------------------------------- */
 
   /* Brand grapes (used sparingly; never as page fills) */
-  --grape-900:   #1b112e;   /* deepest — used only for dense accents */
-  --grape-800:   #352051;   /* PRIMARY grape — links, numerals, key marks */
-  --grape-700:   #4a2f70;   /* secondary grape — hovers, mid-strength fills */
-  --grape-600:   #6b4f9e;   /* tertiary grape — illustration, chart secondary */
-  --grape-500:   #8a6fb8;   /* soft grape — chart/data tertiary */
+  --grape-900:   #1b112e;   /* deepest, used only for dense accents */
+  --grape-800:   #352051;   /* PRIMARY grape, links, numerals, key marks */
+  --grape-700:   #4a2f70;   /* secondary grape, hovers, mid-strength fills */
+  --grape-600:   #6b4f9e;   /* tertiary grape, illustration, chart secondary */
+  --grape-500:   #8a6fb8;   /* soft grape, chart/data tertiary */
   --grape-200:   #d8cfe7;   /* v3: data-baseline rule under stats */
-  --grape-100:   #ece8f3;   /* whisper — chart fills + soft backgrounds */
+  --grape-100:   #ece8f3;   /* whisper, chart fills + soft backgrounds */
   --grape-050:   #f6f4fa;   /* barely-there tint */
 
-  /* Neutrals — the workhorses (90%+ of every layout) */
+  /* Neutrals, the workhorses (90%+ of every layout) */
   --ink-max:    #0B0B0C;   /* the INK SURFACE field, and stat displays on paper.
                               NOT stats only: ink is a peer surface since 2026-08-05. */
   --ink-1000:   #1C1C1E;   /* body text, strong emphasis */
@@ -42,18 +46,18 @@
   --paper:      #FFFFFF;   /* the PAPER SURFACE field. Default and workhorse,
                               and a peer of ink rather than the only canvas. */
 
-  /* Status / semantic — used only inside data viz + form states */
-  --status-up:      #4a2f70;   /* improvement — uses brand grape */
-  --status-down:    #B5524A;   /* decline — desaturated terracotta */
-  --status-warn:    #B58A3A;   /* monitoring — desaturated mustard */
+  /* Status / semantic, used only inside data viz + form states */
+  --status-up:      #4a2f70;   /* improvement, uses brand grape */
+  --status-down:    #B5524A;   /* decline, desaturated terracotta */
+  --status-warn:    #B58A3A;   /* monitoring, desaturated mustard */
 
-  /* v3: DATA-VIZ RAMP — formal, brand-inherited (no rainbow).
+  /* v3: DATA-VIZ RAMP: formal, brand-inherited (no rainbow).
      Sequential ramp (light→dark) for heatmaps/grad_bar fills: */
   --dv-seq-1:  var(--grape-100);
   --dv-seq-2:  var(--grape-500);
   --dv-seq-3:  var(--grape-600);
   --dv-seq-4:  var(--grape-800);
-  /* Categorical series (max 5 — discipline over variety): */
+  /* Categorical series (max 5, discipline over variety): */
   --dv-cat-1:  var(--grape-800);
   --dv-cat-2:  var(--grape-500);
   --dv-cat-3:  var(--ink-500);
@@ -61,7 +65,7 @@
   --dv-cat-5:  var(--status-down);
 
   /* -------------------------------------------------------------------
-     SURFACE LAYER (added 2026-08-05) — TWO PEER SURFACES, not a dark "mode".
+     SURFACE LAYER (added 2026-08-05), TWO PEER SURFACES, not a dark "mode".
      Paper is the default and stays the workhorse. Ink is a full peer, used
      when the message wants weight rather than clinical calm.
      A component never hard-codes a colour: it reads --surface-* and inherits
@@ -79,6 +83,9 @@
   --surface-stroke:     var(--grape-600);  /* load-bearing line art         */
   --surface-accent:     var(--grape-800);  /* the ONE solid element         */
   --surface-on-accent:  var(--paper);      /* text reversed out of accent   */
+  --surface-logo:       var(--grape-800);  /* delta + wordmark lockup       */
+  --surface-track:      var(--ink-100);    /* bar-chart 0-100 track         */
+  --surface-baseline:   var(--grape-200);  /* chart baseline / axis rule    */
 
   /* -------------------------------------------------------------------
      SEMANTIC COLOR TOKENS  (reference these, not raw hex)
@@ -107,17 +114,36 @@
   --color-link-hover:   var(--grape-700);
 
   /* -------------------------------------------------------------------
-     TYPOGRAPHY — families
+     TYPOGRAPHY: families
      ------------------------------------------------------------------- */
-  --font-serif: 'DM Serif Display', 'Source Serif Pro', Georgia, 'Times New Roman', serif;
+  /* DISPLAY changed 2026-08-12. DM Serif Display retired for display use:
+     491 kern pairs (Instrument Serif 3,805), single weight, no optical size
+     axis, and it is the Google Fonts default-carousel face that makes a card
+     read as a template. Kept in the stack as a fallback only. */
+  --font-serif: 'Instrument Serif', 'DM Serif Display', Georgia, 'Times New Roman', serif;
   --font-sans:  'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  /* FIGURES. DM Sans has NO tnum table, verified in the render path: the
+     digit 1 sits at 0.517 the width of 0 and font-variant-numeric:tabular-nums
+     is a silent no-op. Every stat set in DM Sans has a hole in it wherever a
+     1 appears. IBM Plex Sans is monospaced in the figures by default, so it
+     needs no feature flag to be correct. Use this for any .stat, CI, n or
+     evidence string. */
+  --font-figures: 'IBM Plex Sans', 'IBM Plex Mono', ui-monospace, monospace;
   --font-mono:  ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  /* WEB vs EXPORT. --font-mono above is a system STACK, which is right for a
+     web page and wrong for an exported asset: the same HTML then rasterises
+     differently on macOS, Windows and Linux, which is drift by construction.
+     Rendered assets (social cards, decks, figure furniture) use the pinned
+     webfont below so a PNG is reproducible. Added 2026-08-12, after the
+     ferritin pack was found shipping IBM Plex Mono under a private alias
+     called 'Brand Mono', which read like a token and hid the substitution. */
+  --font-mono-asset: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
   /* -------------------------------------------------------------------
-     TYPE SCALE — editorial, generous (serif = display; sans = body/UI)
+     TYPE SCALE: editorial, generous (serif = display; sans = body/UI)
      ------------------------------------------------------------------- */
-  --fs-display-xl:  clamp(3.25rem, 5.5vw, 5.25rem);   /* 52–84px — hero */
-  --fs-display-lg:  clamp(2.5rem, 4vw, 3.75rem);      /* 40–60px — section opener */
+  --fs-display-xl:  clamp(3.25rem, 5.5vw, 5.25rem);   /* 52–84px, hero */
+  --fs-display-lg:  clamp(2.5rem, 4vw, 3.75rem);      /* 40–60px, section opener */
   --fs-display-md:  clamp(2rem, 3vw, 2.75rem);        /* 32–44px */
   --fs-display-sm:  clamp(1.625rem, 2vw, 2rem);       /* 26–32px */
 
@@ -127,11 +153,11 @@
   --fs-heading-md:  1.25rem;     /* 20px */
   --fs-heading-sm:  1.0625rem;   /* 17px */
 
-  --fs-body-lg:     1.125rem;    /* 18px — service descriptions / lead */
-  --fs-body:        1rem;        /* 16px — default body */
+  --fs-body-lg:     1.125rem;    /* 18px, service descriptions / lead */
+  --fs-body:        1rem;        /* 16px, default body */
   --fs-body-sm:     0.9375rem;   /* 15px */
-  --fs-meta:        0.8125rem;   /* 13px — eyebrow, caption */
-  --fs-micro:       0.6875rem;   /* 11px — uppercase tags, method labels */
+  --fs-meta:        0.8125rem;   /* 13px, eyebrow, caption */
+  --fs-micro:       0.6875rem;   /* 11px, uppercase tags, method labels */
 
   /* Line heights */
   --lh-display:   1.05;
@@ -154,7 +180,7 @@
   --fw-bold:     700;
 
   /* -------------------------------------------------------------------
-     SPACING — 4px base
+     SPACING: 4px base
      ------------------------------------------------------------------- */
   --space-0:0; --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px;
   --space-5:20px; --space-6:24px; --space-8:32px; --space-10:40px; --space-12:48px;
@@ -171,16 +197,16 @@
   --gutter:           clamp(20px, 4vw, 48px);
 
   /* -------------------------------------------------------------------
-     RADII — minimal. Editorial cards squared; soft chrome only on
+     RADII: minimal. Editorial cards squared; soft chrome only on
      interactive elements + data viz tiles.
      ------------------------------------------------------------------- */
   --radius-0:0; --radius-xs:2px; --radius-sm:4px; --radius-md:8px;
   --radius-lg:12px; --radius-xl:16px; --radius-pill:999px;
 
-  /* BORDERS — hairlines do the heavy lifting */
+  /* BORDERS: hairlines do the heavy lifting */
   --bw-hair:1px; --bw-rule:1px; --bw-strong:2px;
 
-  /* SHADOWS — extremely restrained. Cards lean on borders, not shadow. */
+  /* SHADOWS: extremely restrained. Cards lean on borders, not shadow. */
   --shadow-0: none;
   --shadow-xs: 0 1px 2px rgba(28, 28, 30, 0.04);
   --shadow-sm: 0 2px 8px rgba(28, 28, 30, 0.05), 0 1px 2px rgba(28, 28, 30, 0.04);
@@ -198,9 +224,9 @@
 }
 
 
-/* Ink surface. Contrast against #0B0B0C, all measured:
-   fg 19.66:1 · fg-muted 15.59:1 · fg-subtle 11.97:1 · stroke 15.59:1
-   accent 4.72:1 · on-accent (white on grape-500) 4.16:1 — LARGE TEXT ONLY
+/* Ink surface. Contrast against #0B0B0C, all measured (rounded, not truncated):
+   fg 19.67:1 · fg-muted 15.61:1 · fg-subtle 11.99:1 · stroke 15.61:1
+   accent 4.73:1 · on-accent (white on grape-500) 4.16:1, LARGE TEXT ONLY
    (>=24px or >=18.66px bold). Never set small text in --surface-on-accent. */
 [data-surface="ink"] {
   --surface:            var(--ink-max);    /* #0B0B0C */
@@ -212,10 +238,15 @@
   --surface-stroke:     var(--ink-200);
   --surface-accent:     var(--grape-500);
   --surface-on-accent:  var(--paper);
+  --surface-logo:       var(--paper);      /* ink-max approved 2026-08-12 */
+  --surface-track:      var(--ink-900);
+  --surface-baseline:   var(--grape-500);  /* 4.73:1 on ink. grape-600 is 3.03:1,
+                                              which only just clears the 3:1
+                                              non-text floor. Measured 2026-08-12. */
 }
 
 /* =====================================================================
-   SEMANTIC TYPE — drop-in helpers
+   SEMANTIC TYPE: drop-in helpers
    ===================================================================== */
 
 html { -webkit-text-size-adjust: 100%; }
@@ -239,7 +270,7 @@ h4, .h4 { font-family: var(--font-sans); font-size: var(--fs-heading-lg); line-h
 h5, .h5 { font-family: var(--font-sans); font-size: var(--fs-heading-md); line-height: var(--lh-heading); font-weight: var(--fw-medium); color: var(--color-fg); margin: 0; }
 h6, .h6 { font-family: var(--font-sans); font-size: var(--fs-heading-sm); line-height: var(--lh-heading); font-weight: var(--fw-semibold); color: var(--color-fg); margin: 0; }
 
-/* Italic display variant — signature emphasis treatment
+/* Italic display variant, signature emphasis treatment
    ("...translated into evidence that holds.") */
 .display-italic, em.display { font-style: italic; font-family: var(--font-serif); }
 
@@ -255,10 +286,10 @@ small, .meta { font-size: var(--fs-meta); color: var(--color-fg-subtle); }
 .numeral { font-family: var(--font-serif); font-style: italic; font-size: var(--fs-display-md); color: var(--color-accent); line-height: 1; letter-spacing: -0.01em; }
 
 /* ---------------------------------------------------------------------
-   v3 AUTHORITY SIGNATURE — the evidence/data voice
+   v3 AUTHORITY SIGNATURE: the evidence/data voice
    --------------------------------------------------------------------- */
 
-/* STAT — big tabular numerals, the credibility hero element */
+/* STAT: big tabular numerals, the credibility hero element */
 .stat {
   font-family: var(--font-sans);
   font-weight: var(--fw-bold);
@@ -271,7 +302,7 @@ small, .meta { font-size: var(--fs-meta); color: var(--color-fg-subtle); }
 }
 .stat--grape { color: var(--color-accent); }
 
-/* METHOD LABEL — small-caps tag that sits ABOVE data ("METHOD" / "n =" / "EVIDENCE") */
+/* METHOD LABEL: small-caps tag that sits ABOVE data ("METHOD" / "n =" / "EVIDENCE") */
 .method-label {
   font-family: var(--font-sans);
   font-size: var(--fs-micro);
@@ -281,10 +312,10 @@ small, .meta { font-size: var(--fs-meta); color: var(--color-fg-subtle); }
   color: var(--color-fg-subtle);
 }
 
-/* DATA BASELINE — thin grape rule under a stat block (the "measured" mark) */
+/* DATA BASELINE: thin grape rule under a stat block (the "measured" mark) */
 .data-baseline { border: 0; border-top: var(--bw-strong) solid var(--color-data-baseline); width: 48px; margin: var(--space-3) 0 0; }
 
-/* EVIDENCE — mono voice for n=, p-values, CIs, model metrics (signals "measured, not asserted") */
+/* EVIDENCE: mono voice for n=, p-values, CIs, model metrics (signals "measured, not asserted") */
 .evidence, .stat-meta {
   font-family: var(--font-mono);
   font-size: var(--fs-body-sm);
@@ -292,12 +323,12 @@ small, .meta { font-size: var(--fs-meta); color: var(--color-fg-subtle); }
   letter-spacing: 0;
 }
 
-/* CITATION / FOOTNOTE — visible rigor */
+/* CITATION / FOOTNOTE: visible rigor */
 .citation { font-family: var(--font-sans); font-size: var(--fs-meta); color: var(--color-fg-subtle); line-height: var(--lh-tight); }
 .citation a { border-bottom: 1px dotted currentColor; }
 
 /* ---------------------------------------------------------------------
-   v3.1 VERTICAL RHYTHM — headings deliberately carry margin:0 so layouts
+   v3.1 VERTICAL RHYTHM: headings deliberately carry margin:0 so layouts
    own spacing; these adjacent-sibling rules add measured breathing room
    ONLY when text follows a heading, so nothing reads cramped by default.
    --------------------------------------------------------------------- */
@@ -308,7 +339,7 @@ h1 + p, h2 + p, h3 + p, h4 + p, h5 + p,
 h1 + .lead, h2 + .lead, h3 + .lead { margin-top: var(--space-5); }
 h1 + h2, h2 + h3, h3 + h4 { margin-top: var(--space-4); }
 
-/* .nowrap — keep evidence units intact ("p < .001" must never break) */
+/* .nowrap, keep evidence units intact ("p < .001" must never break) */
 .nowrap { white-space: nowrap; }
 
 a { color: var(--color-link); text-decoration: none; border-bottom: 1px solid currentColor; transition: color var(--dur-fast) var(--ease-out); }

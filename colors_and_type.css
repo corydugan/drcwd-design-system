@@ -289,9 +289,13 @@ small, .meta { font-size: var(--fs-meta); color: var(--color-fg-subtle); }
    v3 AUTHORITY SIGNATURE: the evidence/data voice
    --------------------------------------------------------------------- */
 
-/* STAT: big tabular numerals, the credibility hero element */
+/* STAT: big equal-width numerals, the credibility hero element.
+   MUST read --font-figures. It read --font-sans until 2026-08-12, and DM Sans
+   has no tnum table, so the two feature declarations below did nothing and
+   every stat containing a 1 rendered with a hole in it. They are kept because
+   they are correct for any future figure face that does carry tnum. */
 .stat {
-  font-family: var(--font-sans);
+  font-family: var(--font-figures);
   font-weight: var(--fw-bold);
   font-size: var(--fs-stat);
   font-variant-numeric: tabular-nums lining-nums;
@@ -317,7 +321,7 @@ small, .meta { font-size: var(--fs-meta); color: var(--color-fg-subtle); }
 
 /* EVIDENCE: mono voice for n=, p-values, CIs, model metrics (signals "measured, not asserted") */
 .evidence, .stat-meta {
-  font-family: var(--font-mono);
+  font-family: var(--font-mono-asset);
   font-size: var(--fs-body-sm);
   color: var(--color-fg-subtle);
   letter-spacing: 0;

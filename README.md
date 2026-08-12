@@ -88,6 +88,7 @@ Traits: authoritative · evidence-precise · plain-confident · **cites the numb
 - **Don't:** hedge, hype, diet-culture, or claim without a figure/source behind it.
 - ⛔ **Banned words, no exceptions: prove, proven, fact, absolute.** This binds RENDERED CARD TEXT, not only captions. Added 2026-08-12 after a banned word shipped in the largest type on a carousel slide: the voice check that ran on that pack enumerated em dashes, emoji, exclamation marks and claim-without-a-number, and silently omitted this list. Machine-check it, and check the HTML, not just the caption.
 - **Never state a prevalence without its threshold.** The same cohort gives 17%, 39% or 78% for iron deficiency depending only on where the ferritin cut-off sits. Name the cut-off or do not name the number.
+- ⛔ **Write micrograms per litre as `ug/L`, never `µg/L`.** Cory's call, 2026-08-12. `text-transform: uppercase` maps the micro sign to a capital Greek mu, so it renders as `MG/L`, a 1000-fold unit error that is invisible in the source. It shipped twice in one day, once in a hand-built card and once out of Claude Design. `u` is immune and costs nothing.
 - **Name the population the source names.** If the paper says "females aged 12 to 21, median age 16", the asset does not say "women". Check the median age before reaching for a population noun.
 
 ## 6 · Layout rules

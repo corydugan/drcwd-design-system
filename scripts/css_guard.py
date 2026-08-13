@@ -32,50 +32,22 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from css_parse import scan_problems
+
 
 class CssGuardError(Exception):
     """The stylesheet will not parse. Nothing should be generated from it."""
 
 
 def scan(text: str) -> list[str]:
-    """Walk the file the way a CSS parser does. Returns a list of problems."""
-    problems: list[str] = []
-    depth = 0
-    open_line = 0
-    i = 0
-    line = 1
-    while i < len(text):
-        if text.startswith("/*", i) and depth == 0:
-            depth, open_line = 1, line
-            i += 2
-            continue
-        if text.startswith("*/", i):
-            if depth == 0:
-                problems.append(
-                    f"line {line}: stray '*/' with no open comment. "
-                    f"Something earlier closed a comment sooner than intended, "
-                    f"most often a path or glob containing the two characters "
-                    f"that terminate a comment."
-                )
-            else:
-                depth = 0
-            i += 2
-            continue
-        if text[i] == "\n":
-            line += 1
-        i += 1
-
-    if depth == 1:
-        problems.append(
-            f"line {open_line}: comment opened here and never closed. "
-            f"Everything after it is swallowed."
-        )
-
-    opens, closes = text.count("{"), text.count("}")
-    if opens != closes:
-        problems.append(f"unbalanced braces: {opens} '{{' against {closes} '}}'")
-
-    return problems
+    """Delegates to css_parse.scan_problems, which masks comments and
+    strings first. The previous hand-rolled version counted braces over
+    raw text: a `}` inside a comment masked a genuinely unclosed rule,
+    and `content:"}"` was reported as unbalanced. Both directions were
+    wrong, and the false-negative direction is the dangerous one."""
+    return scan_problems(text)
 
 
 def check(path: Path) -> None:

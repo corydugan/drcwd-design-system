@@ -112,10 +112,21 @@ def build(css: str, stamp: str) -> str:
     return header(stamp, href) + body
 
 
-def body_of(text: str) -> str:
-    """Everything after the generated header, for a stamp-insensitive compare."""
-    end = text.find("*/")
-    return text[end + 2:].strip() if MARKER in text[:2000] and end != -1 else text.strip()
+STAMP = "   Generated: scripts/sync_website.py from design-system "
+
+
+def comparable(text: str) -> str:
+    """
+    The whole file with only the stamp line removed.
+
+    An earlier version compared just the body, cutting at the first `*/`, which
+    is the end of the generated header. The @import href is stripped from the
+    body and documented ONLY in that header, so adding a font family to the
+    source changed the header and --check still reported "matches". Any hand
+    edit inside the header passed too, including rewriting which repo it claims
+    to come from.
+    """
+    return "\n".join(l for l in text.splitlines() if not l.startswith(STAMP)).strip()
 
 
 def main() -> int:
@@ -156,7 +167,7 @@ def main() -> int:
         if MARKER not in current[:2000]:
             print(f"{target} is NOT a generated file. Someone forked it again.", file=sys.stderr)
             return 1
-        if body_of(current) == body_of(rendered):
+        if comparable(current) == comparable(rendered):
             print(f"{target} matches colors_and_type.css")
             return 0
         print(f"{target} is STALE. Run: python3 scripts/sync_website.py", file=sys.stderr)

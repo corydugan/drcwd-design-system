@@ -79,6 +79,7 @@
      ------------------------------------------------------------------- */
   --surface:            var(--paper);      /* the field                     */
   --surface-fg:         var(--ink-1000);   /* headline / primary text       */
+  --surface-fg-strong:  var(--ink-max);    /* stat displays, the hero number */
   --surface-fg-muted:   var(--ink-700);    /* labels, body, citations       */
   --surface-fg-subtle:  var(--ink-500);    /* micro-caps, meta              */
   --surface-rule:       var(--ink-200);    /* hairline dividers             */
@@ -236,6 +237,7 @@
 [data-surface="ink"] {
   --surface:            var(--ink-max);    /* #0B0B0C */
   --surface-fg:         var(--paper);
+  --surface-fg-strong:  var(--paper);      /* the stat hero, reversed */
   --surface-fg-muted:   var(--ink-200);
   --surface-fg-subtle:  var(--ink-300);
   --surface-rule:       var(--ink-900);
@@ -284,14 +286,25 @@ p.lead { font-size: var(--fs-body-lg); line-height: 1.55; color: var(--color-fg-
 
 small, .meta { font-size: var(--fs-meta); color: var(--color-fg-subtle); }
 
-.eyebrow { font-family: var(--font-sans); font-size: var(--fs-meta); font-weight: var(--fw-medium); letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--color-accent); }
-.tag { font-family: var(--font-sans); font-size: var(--fs-micro); font-weight: var(--fw-medium); letter-spacing: var(--tracking-tag); text-transform: uppercase; color: var(--color-fg-subtle); }
+.eyebrow { font-family: var(--font-sans); font-size: var(--fs-meta); font-weight: var(--fw-medium); letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--surface-eyebrow); }
+.tag { font-family: var(--font-sans); font-size: var(--fs-micro); font-weight: var(--fw-medium); letter-spacing: var(--tracking-tag); text-transform: uppercase; color: var(--surface-fg-subtle); }
 
 /* Service numerals "01 / 02 / 03" in serif italic grape */
-.numeral { font-family: var(--font-serif); font-style: italic; font-size: var(--fs-display-md); color: var(--color-accent); line-height: 1; letter-spacing: -0.01em; }
+.numeral { font-family: var(--font-serif); font-style: italic; font-size: var(--fs-display-md); color: var(--surface-accent); line-height: 1; letter-spacing: -0.01em; }
 
 /* ---------------------------------------------------------------------
    v3 AUTHORITY SIGNATURE: the evidence/data voice
+
+   Every class below reads --surface-*, never --color-*. Corrected 2026-08-12
+   after a test in which a model was given only the brand card and the CSS and
+   asked to build an ink card: it found that .stat read --color-fg-strong,
+   which is ink-max on BOTH surfaces, so a stat on the ink field rendered
+   #0B0B0C on #0B0B0C at 1.00:1 and was invisible. The same applied to
+   .eyebrow, .tag, .numeral, .method-label, .data-baseline, .evidence and
+   .citation. The stylesheet was telling components to read --surface-* (rule
+   3) while its own components did not.
+   --surface-fg-strong was added for .stat, so the hero number keeps ink-max on
+   paper and flips to paper on ink rather than being forced to --surface-fg.
    --------------------------------------------------------------------- */
 
 /* STAT: big equal-width numerals, the credibility hero element.
@@ -305,11 +318,11 @@ small, .meta { font-size: var(--fs-meta); color: var(--color-fg-subtle); }
   font-size: var(--fs-stat);
   font-variant-numeric: tabular-nums lining-nums;
   font-feature-settings: "tnum" 1, "lnum" 1;
-  color: var(--color-fg-strong);
+  color: var(--surface-fg-strong);
   line-height: 1;
   letter-spacing: -0.02em;
 }
-.stat--grape { color: var(--color-accent); }
+.stat--grape { color: var(--surface-accent); }
 
 /* METHOD LABEL: small-caps tag that sits ABOVE data ("METHOD" / "n =" / "EVIDENCE") */
 .method-label {
@@ -318,22 +331,22 @@ small, .meta { font-size: var(--fs-meta); color: var(--color-fg-subtle); }
   font-weight: var(--fw-semibold);
   letter-spacing: var(--tracking-method);
   text-transform: uppercase;
-  color: var(--color-fg-subtle);
+  color: var(--surface-fg-subtle);
 }
 
 /* DATA BASELINE: thin grape rule under a stat block (the "measured" mark) */
-.data-baseline { border: 0; border-top: var(--bw-strong) solid var(--color-data-baseline); width: 48px; margin: var(--space-3) 0 0; }
+.data-baseline { border: 0; border-top: var(--bw-strong) solid var(--surface-baseline); width: 48px; margin: var(--space-3) 0 0; }
 
 /* EVIDENCE: mono voice for n=, p-values, CIs, model metrics (signals "measured, not asserted") */
 .evidence, .stat-meta {
   font-family: var(--font-mono-asset);
   font-size: var(--fs-body-sm);
-  color: var(--color-fg-subtle);
+  color: var(--surface-fg-muted);
   letter-spacing: 0;
 }
 
 /* CITATION / FOOTNOTE: visible rigor */
-.citation { font-family: var(--font-sans); font-size: var(--fs-meta); color: var(--color-fg-subtle); line-height: var(--lh-tight); }
+.citation { font-family: var(--font-sans); font-size: var(--fs-meta); color: var(--surface-fg-subtle); line-height: var(--lh-tight); }
 .citation a { border-bottom: 1px dotted currentColor; }
 
 /* ---------------------------------------------------------------------

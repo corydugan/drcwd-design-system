@@ -38,9 +38,11 @@ import re
 import sys
 from pathlib import Path
 
-from css_guard import CssGuardError, check as guard_css
+sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parent))
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+from css_guard import CssGuardError, check as guard_css
+from css_parse import find_block, declarations as parse_declarations
+
 
 REPO = Path(__file__).resolve().parent.parent
 CSS = REPO / "colors_and_type.css"
@@ -53,20 +55,13 @@ DECL = re.compile(r"--([a-z0-9-]+)\s*:\s*([^;]+);", re.I)
 
 
 def block(css: str, selector: str) -> str:
-    i = css.index(selector)
-    start = css.index("{", i) + 1
-    depth, j = 1, start
-    while depth:
-        if css[j] == "{":
-            depth += 1
-        elif css[j] == "}":
-            depth -= 1
-        j += 1
-    return css[start:j - 1]
+    """Comment- and string-aware. A comment mentioning the selector
+    used to hijack this and hand back the wrong block."""
+    return find_block(css, selector)
 
 
-def declarations(body: str) -> dict[str, str]:
-    return {n.lower(): v.strip() for n, v in DECL.findall(body)}
+def declarations(body: str):
+    return parse_declarations(body)
 
 
 def primary(stack: str) -> str:

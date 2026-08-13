@@ -110,6 +110,7 @@ whichever surface it sits on. Set it on the card root:
 |---|---|---|
 | `--surface` | `#FFFFFF` | `#0B0B0C` |
 | `--surface-fg` | `#1C1C1E` | `#FFFFFF` |
+| `--surface-fg-strong` | `#0B0B0C` | `#FFFFFF` |
 | `--surface-fg-muted` | `#4A4A4F` | `#E4E5E7` |
 | `--surface-fg-subtle` | `#6E6F75` | `#C8CACE` |
 | `--surface-rule` | `#E4E5E7` | `#2A2A2D` |

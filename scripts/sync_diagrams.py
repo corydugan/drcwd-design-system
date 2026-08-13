@@ -53,9 +53,10 @@ import subprocess
 import sys
 from pathlib import Path
 
-from css_guard import CssGuardError, check as guard_css
-
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from css_guard import CssGuardError, check as guard_css
+from css_parse import find_block, declarations as parse_declarations, mask
 
 REPO = Path(__file__).resolve().parent.parent
 CSS = REPO / "colors_and_type.css"
@@ -80,20 +81,16 @@ SURFACE_KEYS = ["surface", "surface-fg", "surface-fg-muted", "surface-fg-subtle"
 
 
 def block(css: str, selector: str) -> str:
-    i = css.index(selector)
-    start = css.index("{", i) + 1
-    depth, j = 1, start
-    while depth:
-        if css[j] == "{":
-            depth += 1
-        elif css[j] == "}":
-            depth -= 1
-        j += 1
-    return css[start:j - 1]
+    """Comment- and string-aware. A comment merely mentioning the selector used
+    to hijack this and hand back the wrong block."""
+    return find_block(css, selector)
 
 
 def declarations(body: str) -> dict[str, str]:
-    return {n.lower(): v.strip() for n, v in DECL.findall(body)}
+    """A comment quoting an old hex used to overwrite the live token here, and a
+    dropped semicolon used to make one token swallow the next while the script
+    still exited 0. Both now raise."""
+    return parse_declarations(body)
 
 
 def source_stamp() -> str:
@@ -158,33 +155,77 @@ def token_block(css: str) -> str:
     return "\n".join(L)
 
 
-def split_target(text: str) -> tuple[str, str]:
-    """Return (generated_block, hand_authored_tail)."""
+class NotInitialised(Exception):
+    """The target has no markers, so the boundary cannot be known safely."""
+
+
+def hand_authored_tail(text: str) -> str:
+    """
+    Everything after the END marker: the frame rules, returned verbatim.
+
+    The markers are the ONLY accepted boundary. An earlier version guessed it by
+    taking the end of the LAST :root or [data-surface] block in the file, which
+    an audit showed would delete .slide, .brandbar and .pay, comments and all,
+    on any file with an ordinary `@media print { :root { ... } }` below the
+    frame rules. It then printed "hand-authored frame rules preserved" while
+    having destroyed them. Guessing a boundary in a file you are about to
+    overwrite is not worth the convenience.
+
+    Bootstrapping a new diagram folder goes through --init, which takes a
+    backup first.
+    """
     if START in text and END in text:
         head, rest = text.split(START, 1)
         _, tail = rest.split(END, 1)
         if head.strip():
-            raise ValueError("unexpected content before the generated block")
-        return "", tail.lstrip("\n")
-    # first run: the boundary is the end of the last :root / [data-surface] block
+            raise ValueError(
+                "there is content before the generated block. Move it below the "
+                f"{END} marker, or remove it."
+            )
+        return tail.lstrip("\n")
+    raise NotInitialised(
+        "no generated-block markers found. This script will not guess where the "
+        "generated tokens end and your hand-authored frame rules begin, because "
+        "guessing wrong deletes the frame rules.\n"
+        "  To adopt an existing file: re-run with --init. It writes a .bak "
+        "beside the target first, then treats everything after the LAST :root "
+        "or [data-surface] block as hand-authored. Read the result before "
+        "trusting it."
+    )
+
+
+def hand_authored_tail_by_guess(text: str) -> str:
+    """--init only. Never reached on a file that already has markers."""
     last = 0
-    for m in re.finditer(r"(?::root|\[data-surface=\"ink\"\])\s*\{", text):
-        depth, j = 1, text.index("{", m.start()) + 1
-        while depth:
-            if text[j] == "{":
+    m = mask(text)
+    for match in re.finditer(r"(?::root|\[data-surface=\"ink\"\])\s*\{", m):
+        depth, j = 1, m.index("{", match.start()) + 1
+        while depth and j < len(m):
+            if m[j] == "{":
                 depth += 1
-            elif text[j] == "}":
+            elif m[j] == "}":
                 depth -= 1
             j += 1
         last = max(last, j)
     if not last:
         raise ValueError("no :root block found; is this the right file?")
-    return "", text[last:].lstrip("\n")
+    return text[last:].lstrip("\n")
+
+
+STAMP_LINE = "/* Source: drcwd-design-system/colors_and_type.css @ "
+
+
+def without_stamp(block_text: str) -> str:
+    """Drop only the stamp line, which moves with every commit of the source."""
+    return "\n".join(l for l in block_text.splitlines()
+                     if not l.startswith(STAMP_LINE))
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
+    ap.add_argument("--init", action="store_true",
+                    help="adopt a file that has no markers yet. Writes a .bak first.")
     ap.add_argument("--target", type=Path, default=DEFAULT_TARGET)
     args = ap.parse_args()
 
@@ -199,26 +240,37 @@ def main() -> int:
         print(f"not found: {target}", file=sys.stderr)
         return 2
 
-    css = CSS.read_text(encoding="utf-8")
     current = target.read_text(encoding="utf-8")
-    _, tail = split_target(current)
-    rendered = token_block(css) + "\n" + tail
+
+    try:
+        tail = hand_authored_tail(current)
+    except NotInitialised as e:
+        if not args.init:
+            print(f"{target}:\n  {e}", file=sys.stderr)
+            return 1
+        backup = target.with_suffix(target.suffix + ".bak")
+        backup.write_text(current, encoding="utf-8")
+        print(f"--init: wrote a backup to {backup}")
+        tail = hand_authored_tail_by_guess(current)
+    except ValueError as e:
+        print(f"{target}: {e}", file=sys.stderr)
+        return 1
+
+    try:
+        css = CSS.read_text(encoding="utf-8")
+        rendered = token_block(css) + "\n" + tail
+    except (KeyError, ValueError, LookupError) as e:
+        print(f"cannot build the token block from colors_and_type.css:\n  "
+              f"{type(e).__name__}: {e}", file=sys.stderr)
+        return 2
 
     if args.check:
-        try:
-            _, cur_tail = split_target(current)
-        except ValueError as e:
-            print(f"{target}: {e}", file=sys.stderr)
-            return 1
         if START not in current:
-            print(f"{target} is not yet generated. Run: python3 scripts/sync_diagrams.py",
-                  file=sys.stderr)
+            print(f"{target} is not yet generated. Run with --init.", file=sys.stderr)
             return 1
         cur_block = current.split(START, 1)[1].split(END, 1)[0]
         new_block = rendered.split(START, 1)[1].split(END, 1)[0]
-        # ignore the stamp line, which moves with every commit
-        strip = lambda s: "\n".join(l for l in s.splitlines() if "@ " not in l)
-        if strip(cur_block) == strip(new_block) and cur_tail == tail:
+        if without_stamp(cur_block) == without_stamp(new_block):
             print(f"{target} matches colors_and_type.css")
             return 0
         print(f"{target} has DRIFTED. Run: python3 scripts/sync_diagrams.py", file=sys.stderr)
@@ -227,7 +279,7 @@ def main() -> int:
     target.write_text(rendered, encoding="utf-8")
     print(f"wrote {target}")
     print(f"  from design-system {source_stamp()}")
-    print(f"  hand-authored frame rules preserved: {len(tail.splitlines())} lines")
+    print(f"  hand-authored frame rules preserved verbatim: {len(tail.splitlines())} lines")
     return 0
 
 

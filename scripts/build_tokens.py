@@ -43,11 +43,13 @@ import json
 import re
 import sys
 
+sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parent))
+
 from css_guard import CssGuardError, check as guard_css
+from css_parse import find_block, declarations as parse_declarations
 from collections import OrderedDict
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 REPO = Path(__file__).resolve().parent.parent
 CSS = REPO / "colors_and_type.css"
@@ -106,24 +108,15 @@ VAR_REF = re.compile(r"var\(\s*--([a-z0-9-]+)\s*\)", re.I)
 
 
 def block(css: str, selector: str) -> str:
-    """Return the body of the first `selector { ... }` block."""
-    i = css.index(selector)
-    start = css.index("{", i) + 1
-    depth, j = 1, start
-    while depth:
-        if css[j] == "{":
-            depth += 1
-        elif css[j] == "}":
-            depth -= 1
-        j += 1
-    return css[start:j - 1]
+    """Comment- and string-aware. A comment mentioning the selector
+    used to hijack this and hand back the wrong block."""
+    return find_block(css, selector)
 
 
-def declarations(body: str) -> "OrderedDict[str, str]":
-    out: "OrderedDict[str, str]" = OrderedDict()
-    for name, value in DECL.findall(body):
-        out[name.lower()] = value.strip()
-    return out
+def declarations(body: str):
+    """Comment-blind parsing is what let a comment quoting an old hex
+    overwrite a live token. Strict: a missing semicolon now raises."""
+    return parse_declarations(body)
 
 
 def resolve_hex(name: str, decls: dict[str, str], seen: set[str] | None = None) -> str:

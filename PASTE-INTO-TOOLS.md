@@ -77,7 +77,7 @@ slides of one carousel.
 
 | Role | Family | Token |
 |---|---|---|
-| Display / headlines | **Instrument Serif** | `--font-serif` |
+| Display / headlines | **DM Serif Display** | `--font-serif` |
 | Body, UI, eyebrows | **DM Sans** | `--font-sans` |
 | Figures: every stat, CI, n = | **IBM Plex Sans** | `--font-figures` |
 | Evidence voice, web | **ui-monospace** | `--font-mono` |
@@ -121,6 +121,8 @@ whichever surface it sits on. Set it on the card root:
 | `--surface-logo` | `#352051` | `#FFFFFF` |
 | `--surface-track` | `#EFEFEF` | `#2A2A2D` |
 | `--surface-baseline` | `#d8cfe7` | `#8a6fb8` |
+| `--surface-veil` | `rgba(255,255,255,.9)` | `rgba(11,11,12,.9)` |
+| `--surface-footer` | `#1C1C1E` | `#2A2A2D` |
 
 ### Scale
 

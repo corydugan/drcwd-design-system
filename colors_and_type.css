@@ -6,7 +6,7 @@
 
    SOURCE OF TRUTH: edit ONLY this file (and tokens.json beside it).
    Every other surface (Claude Design, the website, Canva, Figma) inherits FROM here.
-   Locked constraints: grape #352051 · Instrument Serif + DM Sans + IBM Plex Sans
+   Locked constraints: grape #352051 · DM Serif Display + DM Sans + IBM Plex Sans
    figures · white-dominant.
    ===================================================================== */
 
@@ -17,7 +17,7 @@
    (the path segment above was a glob until 2026-08-12. A glob closes a CSS
    comment: the two characters after "example-skills/" terminated this block,
    which made the whole stylesheet unparseable from line 16 onward.) */
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 
 :root {
   /* -------------------------------------------------------------------
@@ -90,43 +90,58 @@
   --surface-logo:       var(--grape-800);  /* delta + wordmark lockup       */
   --surface-track:      var(--ink-100);    /* bar-chart 0-100 track         */
   --surface-baseline:   var(--grape-200);  /* chart baseline / axis rule    */
+  --surface-veil:       rgba(255,255,255,.9); /* sticky nav over content    */
+  --surface-footer:     var(--ink-1000);   /* footer field, darker than paper */
 
   /* -------------------------------------------------------------------
      SEMANTIC COLOR TOKENS  (reference these, not raw hex)
      ------------------------------------------------------------------- */
-  --color-bg:           var(--paper);
+  /* These now ALIAS the surface layer rather than the paper palette.
+     Changed 2026-08-13. They were fixed paper values, so anything reading
+     --color-fg-muted rendered dark grey on the ink field: p.lead was #4A4A4F
+     on #0B0B0C, effectively invisible, which is what the first ink build of
+     drcorydugan.com/workplaces looked like.
+     Custom properties resolve at USE time, so aliasing here means every rule
+     that already reads --color-* flips with the surface, with no rule
+     rewritten anywhere. Kept rather than deleted because the site, the
+     diagrams and the previews all read them by these names. */
+  --color-bg:           var(--surface);
   --color-bg-soft:      var(--ink-050);
   --color-bg-accent:    var(--grape-050);   /* rare; section dividers only */
 
-  --color-fg:           var(--ink-1000);
-  --color-fg-strong:    var(--ink-max);     /* v3: stat displays */
-  --color-fg-muted:     var(--ink-700);
-  --color-fg-subtle:    var(--ink-500);
+  --color-fg:           var(--surface-fg);
+  --color-fg-strong:    var(--surface-fg-strong);
+  --color-fg-muted:     var(--surface-fg-muted);
+  --color-fg-subtle:    var(--surface-fg-subtle);
   --color-fg-faint:     var(--ink-400);
-  --color-fg-on-grape:  var(--paper);
+  --color-fg-on-grape:  var(--surface-on-accent);
 
-  --color-accent:       var(--grape-800);
+  --color-accent:       var(--surface-accent);
   --color-accent-hover: var(--grape-700);
   --color-accent-soft:  var(--grape-600);
 
-  --color-border:       var(--ink-200);
+  --color-border:       var(--surface-rule);
   --color-border-strong:var(--ink-300);
-  --color-rule:         var(--ink-100);
-  --color-data-baseline:var(--grape-200);   /* v3: rule under stat blocks */
+  --color-rule:         var(--surface-rule);
+  --color-data-baseline:var(--surface-baseline);
 
-  --color-link:         var(--grape-800);
+  --color-link:         var(--surface-accent);
   --color-link-hover:   var(--grape-700);
 
   /* -------------------------------------------------------------------
      TYPOGRAPHY: families
      ------------------------------------------------------------------- */
-  /* DISPLAY changed 2026-08-12. DM Serif Display retired for display use:
-     491 kern pairs (Instrument Serif 3,805), single weight, no optical size
-     axis, and it is the Google Fonts default-carousel face that makes a card
-     read as a template. Kept in the stack as a fallback only.
-     NOTE: retired for display TYPE only. The logo lockups deliberately stay
-     in DM Serif Display (Cory's call 2026-08-12, README section 3). */
-  --font-serif: 'Instrument Serif', 'DM Serif Display', Georgia, 'Times New Roman', serif;
+  /* DISPLAY. DM Serif Display, restored 2026-08-13 on Cory's call after seeing
+     Instrument Serif live on the site.
+     History, so nobody re-litigates it: 605ee77 retired DM Serif Display for
+     display use on kern-pair grounds (491 pairs against Instrument Serif's
+     3,805, one weight, no optical-size axis, and it sits on the Google Fonts
+     default carousel). That reasoning still holds on paper and it lost to the
+     thing that matters more, which is that Cory looked at both rendered and
+     preferred this one. The lockups never moved off DM Serif Display either
+     (README section 3), so the mark and the type now agree again.
+     Instrument Serif is kept in the stack as the first fallback. */
+  --font-serif: 'DM Serif Display', 'Instrument Serif', Georgia, 'Times New Roman', serif;
   --font-sans:  'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
   /* FIGURES. DM Sans has NO tnum table, verified in the render path: the
      digit 1 sits at 0.517 the width of 0 and font-variant-numeric:tabular-nums
@@ -247,6 +262,8 @@
   --surface-on-accent:  var(--paper);
   --surface-logo:       var(--paper);      /* ink-max approved 2026-08-12 */
   --surface-track:      var(--ink-900);
+  --surface-veil:       rgba(11,11,12,.9);
+  --surface-footer:     var(--ink-900);    /* on ink the footer lifts, not darkens */
   --surface-baseline:   var(--grape-500);  /* 4.73:1 on ink. grape-600 is 3.03:1,
                                               which only just clears the 3:1
                                               non-text floor. Measured 2026-08-12. */
@@ -262,8 +279,8 @@ body {
   font-family: var(--font-sans);
   font-size: var(--fs-body);
   line-height: var(--lh-body);
-  color: var(--color-fg);
-  background: var(--color-bg);
+  color: var(--surface-fg);
+  background: var(--surface);
   font-weight: var(--fw-regular);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

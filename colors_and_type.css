@@ -91,6 +91,18 @@
   --surface-track:      var(--ink-100);    /* bar-chart 0-100 track         */
   --surface-baseline:   var(--grape-200);  /* chart baseline / axis rule    */
   --surface-veil:       rgba(255,255,255,.9); /* sticky nav over content    */
+
+  /* FILL vs ACCENT, split 2026-08-13. They were one token and could not be.
+     --surface-accent is a TYPE colour: eyebrows, links, tags, the one solid
+     element's text. --surface-fill is a BLOCK colour: button and card
+     backgrounds. On paper both are grape-800 and the split is invisible. On
+     ink they must diverge, because grape-800 is 1.39:1 as text on the field
+     (unreadable) and 14.22:1 as a fill with white on it (excellent).
+     Cory's call: the dark grape leads on ink as fills, and the light grape
+     is spent rarely. */
+  --surface-fill:       var(--grape-800);  /* block and button backgrounds  */
+  --surface-fill-edge:  var(--grape-900);  /* a fill needs a visible edge   */
+  --surface-on-fill:    var(--paper);      /* text reversed out of a fill   */
   --surface-footer:     var(--ink-1000);   /* footer field, darker than paper */
 
   /* -------------------------------------------------------------------
@@ -258,11 +270,17 @@
   --surface-rule:       var(--ink-900);
   --surface-eyebrow:    var(--grape-500);
   --surface-stroke:     var(--ink-200);
-  --surface-accent:     var(--grape-500);
-  --surface-on-accent:  var(--paper);
+  --surface-accent:     var(--grape-200);  /* 13.12:1. Type only: eyebrows,
+                                              links, tags. grape-500 is now
+                                              the RARE colour, spent by hand. */
+  --surface-on-accent:  var(--ink-max);
   --surface-logo:       var(--paper);      /* ink-max approved 2026-08-12 */
   --surface-track:      var(--ink-900);
   --surface-veil:       rgba(11,11,12,.9);
+  --surface-fill:       var(--grape-800);  /* 14.22:1 with white on it      */
+  --surface-fill-edge:  var(--grape-600);  /* 3.04:1 on the field, so the
+                                              block has a visible boundary  */
+  --surface-on-fill:    var(--paper);
   --surface-footer:     var(--ink-900);    /* on ink the footer lifts, not darkens */
   --surface-baseline:   var(--grape-500);  /* 4.73:1 on ink. grape-600 is 3.03:1,
                                               which only just clears the 3:1

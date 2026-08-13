@@ -116,12 +116,15 @@ whichever surface it sits on. Set it on the card root:
 | `--surface-rule` | `#E4E5E7` | `#2A2A2D` |
 | `--surface-eyebrow` | `#4a2f70` | `#8a6fb8` |
 | `--surface-stroke` | `#6b4f9e` | `#E4E5E7` |
-| `--surface-accent` | `#352051` | `#8a6fb8` |
-| `--surface-on-accent` | `#FFFFFF` | `#FFFFFF` |
+| `--surface-accent` | `#352051` | `#d8cfe7` |
+| `--surface-on-accent` | `#FFFFFF` | `#0B0B0C` |
 | `--surface-logo` | `#352051` | `#FFFFFF` |
 | `--surface-track` | `#EFEFEF` | `#2A2A2D` |
 | `--surface-baseline` | `#d8cfe7` | `#8a6fb8` |
 | `--surface-veil` | `rgba(255,255,255,.9)` | `rgba(11,11,12,.9)` |
+| `--surface-fill` | `#352051` | `#352051` |
+| `--surface-fill-edge` | `#1b112e` | `#6b4f9e` |
+| `--surface-on-fill` | `#FFFFFF` | `#FFFFFF` |
 | `--surface-footer` | `#1C1C1E` | `#2A2A2D` |
 
 ### Scale

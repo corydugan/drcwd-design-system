@@ -9,6 +9,77 @@
 
 ---
 
+## 0 · Non-negotiables
+
+The short card. These are the rules a tool needs before it builds anything, and
+they live here rather than in a second file so there is only one copy of them.
+`scripts/build_brand_card.py` extracts everything between the CARD markers into
+`PASTE-INTO-TOOLS.md` and injects the live token values beneath it.
+
+<!-- CARD:START -->
+## The rules
+
+1. **Grape is accent and ink only, never a page fill.** Neutrals carry 90%+ of
+   every layout.
+2. **Two peer surfaces, not a dark mode.** `paper` is the default workhorse.
+   `ink` is a full peer, used when the message wants weight rather than clinical
+   calm. Set it on the card root, never per component. Grape is still never the
+   field: the dark field is `--ink-max`.
+3. **A component never hard-codes a colour and never reads a raw palette token.**
+   It reads `--surface-*`. Reading `var(--grape-200)` directly is the bug that
+   makes an asset unportable between surfaces.
+4. **Reference tokens by name**, never a raw hex inline. This includes render
+   scaffolding outside the artboard.
+5. **The lockup reads `--surface-logo`, never `--surface-fg`.** `--surface-fg`
+   is text.
+6. **Field-dominant: 35 to 40% clear field minimum**, measured as layout
+   negative space (content-block occupancy on a coarse grid), NOT as a count of
+   background-coloured pixels. A pixel count scores the inside of every letter
+   as whitespace and can never fail.
+7. **Minimum readable size.** A 1080px canvas renders near 400 CSS px in a phone
+   feed. Anything intended to be READ, including every confidence interval and
+   every citation, sits at 32px minimum on a 1080px canvas. Below that it is
+   decoration: cut it rather than shrink it.
+8. **No gradient. No emoji. No exclamation marks.**
+
+## Voice
+
+First-person singular, Australian English, plain-confident, always cites the
+number.
+
+- **No em dashes and no en dashes as prose punctuation.** Use a comma,
+  parentheses, or a full stop. Universal rule.
+- **Banned words, no exceptions: prove, proven, fact, absolute.** This binds
+  rendered card text, not only captions. Machine-check it.
+- **Never state a prevalence without its threshold.** The same cohort gives 17%,
+  39% or 78% for iron deficiency depending only on where the ferritin cut-off
+  sits. Name the cut-off or do not name the number.
+- **Name the population the source names.** If the paper says "females aged 12
+  to 21", the asset does not say "women".
+- **Write micrograms per litre as `ug/L`, never the micro sign.**
+  `text-transform: uppercase` maps the micro sign to a capital Greek mu, so it
+  renders as a 1000-fold unit error that is invisible in the source.
+
+Worked example of the voice:
+
+> "In 3,490 US females aged 12 to 21, 38.6% were iron deficient at a ferritin
+> below 25 ug/L. At below 50, the same blood gives 77.5%."
+
+## The authority signature
+
+Lead with data on display: a big tabular `.stat`, a small-caps `.method-label`
+above it, a thin `.data-baseline` rule beneath, mono `.evidence` for the
+supporting figure, and `.citation` for the source.
+
+Charts: the fill reads `--surface-accent`, the track reads `--surface-track`.
+Use ONE fill colour when bar length and a printed number already carry the
+value. Never let the same value take different sequential-ramp steps on two
+slides of one carousel.
+<!-- CARD:END -->
+
+
+---
+
 ## 1 · Color tokens
 Brand grape is **accent + ink only, never a page fill.** Neutrals carry 90%+ of every layout.
 
@@ -66,7 +137,7 @@ Grape is still never a page fill. The dark field is `ink-max`, not grape.
 ## 3 · Logo usage
 - **Mark:** the **Δ delta**, symbol for change/difference, and an upward data peak. Equilateral. The single signature across icon + wordmark.
 - **Lockup colour is a token, never a literal.** Components read `--surface-logo`; they must not read `--surface-fg`, which is text. Resolves to **grape-800** on paper / ink-050 / grape-050, and **paper** on grape and on ink-max.
-- **Primary lockup:** delta + "Dr. Cory Dugan" wordmark in DM Serif Display (`logo/lockup-primary-delta-outlined.svg`).
+- **Primary lockup:** delta + "Dr. Cory Dugan" wordmark in **DM Serif Display**, outlined to paths. **This is deliberate and settled, not drift.** Cory's call 2026-08-12: when Instrument Serif replaced DM Serif Display for display TYPE, the lockups were reviewed at four treatments and DM Serif Display was kept for the MARK. So the two are split on purpose: Instrument Serif sets every headline, the wordmark stays as it is. Do not "correct" the lockups to Instrument Serif, and do not regenerate them from `.build/outline.py` unless that call is reversed (`logo/lockup-primary-delta-outlined.svg`).
 - **Credential lockup:** + "PhD" + eyebrow "HEALTH-SCREENING AI" (`logo/lockup-credential-delta-outlined.svg`). **Stacked:** `logo/wordmark-stacked-delta-outlined.svg`.
 - **Icon:** grape delta tile, brand xl radius (`logo/icon-delta.svg` + `-inverse` for light). Scales to a 24px favicon.
 - Clearspace ≥ the delta's height; min wordmark width 150px / 25mm. Approved grounds: paper, ink-050, grape-050, and **ink-max** (added 2026-08-12, closing the gap left when the surface layer landed in `759ec62` after this section was written).

@@ -1,0 +1,7 @@
+{
+  "projectId": "e56f9e35-9aa7-48ee-b073-bac3061715b5",
+  "projectName": "drcwdugan_paradox design system",
+  "shape": "css-tokens",
+  "note": "Not a JS component library: no package.json, no dist, no storybook. The /design-sync converter cannot run here. Layout is produced off-script from colors_and_type.css + tokens.json + preview/*.html (each already carries an @dsCard first line). No _ds_bundle.js, because there is no component code to compile.",
+  "pendingBrandDecision": "2026-08-12: Cory chose a v4 identity built from zero (new palette, type, logo, voice). Nothing uploads to this project until v4 is defined. v3 Authority is the previous generation, still the live brand until v4 locks."
+}

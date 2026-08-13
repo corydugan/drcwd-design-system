@@ -13,7 +13,10 @@
 /* Webfonts for the WEB. Rendered assets must pin local TTFs instead: a network
    fetch inside a screenshot pipeline is a race condition. Local OFL copies of
    Instrument Serif and IBM Plex ship with the canvas-design skill at
-   ~/.claude/plugins/cache/anthropic-agent-skills/example-skills/*/skills/canvas-design/canvas-fonts/ */
+   ~/.claude/plugins/cache/anthropic-agent-skills/example-skills/<ver>/skills/canvas-design/canvas-fonts/
+   (the path segment above was a glob until 2026-08-12. A glob closes a CSS
+   comment: the two characters after "example-skills/" terminated this block,
+   which made the whole stylesheet unparseable from line 16 onward.) */
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 
 :root {
@@ -119,7 +122,9 @@
   /* DISPLAY changed 2026-08-12. DM Serif Display retired for display use:
      491 kern pairs (Instrument Serif 3,805), single weight, no optical size
      axis, and it is the Google Fonts default-carousel face that makes a card
-     read as a template. Kept in the stack as a fallback only. */
+     read as a template. Kept in the stack as a fallback only.
+     NOTE: retired for display TYPE only. The logo lockups deliberately stay
+     in DM Serif Display (Cory's call 2026-08-12, README section 3). */
   --font-serif: 'Instrument Serif', 'DM Serif Display', Georgia, 'Times New Roman', serif;
   --font-sans:  'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
   /* FIGURES. DM Sans has NO tnum table, verified in the render path: the

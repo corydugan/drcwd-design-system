@@ -1,3 +1,7 @@
 .DS_Store
 node_modules/
 build/
+
+# Python bytecode from scripts/
+__pycache__/
+*.pyc

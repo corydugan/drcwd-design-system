@@ -58,6 +58,29 @@ Worked example of the voice:
 > "In 3,490 US females aged 12 to 21, 38.6% were iron deficient at a ferritin
 > below 25 ug/L. At below 50, the same blood gives 77.5%."
 
+## Show it, do not only say it
+
+Where a claim is about data, a process, a relationship, a sequence or a
+threshold, SHOW it as a minimal visualisation rather than describing it.
+
+```
+a hidden layer under a surface .... iceberg · layers
+a status range, low to optimal .... reference-range bar · spectrum
+this vs that ...................... versus split · before and after
+branching options ................. decision tree · two-path fork
+a mechanism or causal chain ....... cascade · chain · flow
+how big the gap is ................ funnel · waffle · icon array
+a sequence with real order ........ timeline · step flow · pipeline
+a single striking number .......... big-number hero + annotation
+```
+
+Line art only: strokes read `--surface-stroke`, labels read
+`--surface-fg-muted`. ONE element filled with `--surface-fill`, and that
+element is the insight; everything else is a hairline. Labels, not sentences.
+Every diagram carries a `.method-label` above and a `.citation` below naming
+the population. Numbers use `--font-figures`. Use a shape only where the shape
+carries information: a numbered list that is not a sequence is decoration.
+
 ## The authority signature
 
 Lead with data on display: a big tabular `.stat`, a small-caps `.method-label`

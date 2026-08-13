@@ -65,6 +65,29 @@ Worked example of the voice:
 > "In 3,490 US females aged 12 to 21, 38.6% were iron deficient at a ferritin
 > below 25 ug/L. At below 50, the same blood gives 77.5%."
 
+## Show it, do not only say it
+
+Where a claim is about data, a process, a relationship, a sequence or a
+threshold, SHOW it as a minimal visualisation rather than describing it.
+
+```
+a hidden layer under a surface .... iceberg · layers
+a status range, low to optimal .... reference-range bar · spectrum
+this vs that ...................... versus split · before and after
+branching options ................. decision tree · two-path fork
+a mechanism or causal chain ....... cascade · chain · flow
+how big the gap is ................ funnel · waffle · icon array
+a sequence with real order ........ timeline · step flow · pipeline
+a single striking number .......... big-number hero + annotation
+```
+
+Line art only: strokes read `--surface-stroke`, labels read
+`--surface-fg-muted`. ONE element filled with `--surface-fill`, and that
+element is the insight; everything else is a hairline. Labels, not sentences.
+Every diagram carries a `.method-label` above and a `.citation` below naming
+the population. Numbers use `--font-figures`. Use a shape only where the shape
+carries information: a numbered list that is not a sequence is decoration.
+
 ## The authority signature
 
 Lead with data on display: a big tabular `.stat`, a small-caps `.method-label`
@@ -151,6 +174,49 @@ Kept: hairline rules as structure · generous whitespace (35–40% min) · squar
 - small-caps **method label** above data (`.method-label`, "METHOD" / "n =" / "EVIDENCE")
 - thin grape **data-baseline** rule under stats (`.data-baseline`)
 - **citation/footnote** style for sources (`.citation`), visible rigor.
+
+## Show it, do not only say it
+
+**Added 2026-08-13, Cory's call.** Where a claim is about data, a process, a
+relationship, a sequence or a threshold, the asset SHOWS it as a minimal
+visualisation rather than describing it in a sentence. A number without its
+shape is an assertion; the shape is the argument.
+
+This is the same visual language as the concept diagrams, not a second one.
+`BRAND/drCWD Concept-Diagram Visual Language_CD.md` holds the full 14-group
+library and the message-to-shape matching guide. It applies on the web too,
+drawn as inline SVG or CSS rather than rendered to PNG.
+
+**The matching guide, short form:**
+
+```
+a hidden layer under a surface .... iceberg · layers · concentric rings
+a status range, low to optimal .... reference-range bar · spectrum
+this vs that, two choices ......... versus split · before and after
+one idea into branching options ... decision tree · two-path fork
+a mechanism or causal chain ....... cascade · chain · flow
+how big the gap or loss is ........ funnel · waffle · icon array
+a depleting resource .............. battery · hourglass
+a sequence with real order ........ timeline · step flow · pipeline
+a single striking number .......... big-number hero + annotation
+prevalence storytelling ........... natural-frequency tree · waffle
+```
+
+**On brand, every time:**
+
+1. **Line art, not chrome.** Strokes read `--surface-stroke`, labels read
+   `--surface-fg-muted`. No gradients, no shadows, no 3D.
+2. **ONE element filled with `--surface-fill`.** That element is the insight.
+   Everything else is a hairline. If two things are filled, neither reads.
+3. **The structure IS the content.** Labels, not sentences. If it needs a
+   paragraph to make sense, it is the wrong shape.
+4. **It carries its own evidence.** A `.method-label` above, a `.citation`
+   below naming the population. A diagram without a source is decoration.
+5. **Numbers use `--font-figures`.** Never the sans, which has no tnum table.
+6. **Only where it earns its place.** A sequence gets a timeline only if the
+   order carries information the reader needs. Numbered markers on a list that
+   is not a sequence are decoration, and decoration is the thing this brand
+   is against.
 
 ## 5 · Voice
 First-person singular · **Australian English** · no emoji · no exclamation marks.

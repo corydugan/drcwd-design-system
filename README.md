@@ -4,7 +4,7 @@
 
 > **Edit only `colors_and_type.css` and `tokens.json`.** Everything else (Claude Design, the website, Canva, Figma) inherits *from here*. This file is the contract.
 
-**Locked constraints:** grape `#352051` · Instrument Serif + DM Sans + IBM Plex Sans figures · white-dominant editorial.
+**Locked constraints:** grape `#352051` · DM Serif Display + DM Sans + IBM Plex Sans figures · white-dominant editorial. Instrument Serif is the first serif fallback, not the display face: see the typography comment in `colors_and_type.css` for why it was restored on 2026-08-13.
 **Supersedes:** v2 grape (2026-06-12) and the retired v1 teal system.
 
 ---
@@ -41,6 +41,10 @@ they live here rather than in a second file so there is only one copy of them.
    every citation, sits at 32px minimum on a 1080px canvas. Below that it is
    decoration: cut it rather than shrink it.
 8. **No gradient. No emoji. No exclamation marks.**
+9. **Nothing ships to the website unseen.** Any visual built for
+   drcorydugan.com is rendered to a PNG and opened locally for Cory to approve
+   BEFORE it lands in a page or a commit. Set 2026-08-13, after a run of
+   visuals went live and had to be reworked on the page.
 
 ## Voice
 

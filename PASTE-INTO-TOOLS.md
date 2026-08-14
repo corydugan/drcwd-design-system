@@ -34,6 +34,10 @@ that needs to produce a drCWDugan asset.
    every citation, sits at 32px minimum on a 1080px canvas. Below that it is
    decoration: cut it rather than shrink it.
 8. **No gradient. No emoji. No exclamation marks.**
+9. **Nothing ships to the website unseen.** Any visual built for
+   drcorydugan.com is rendered to a PNG and opened locally for Cory to approve
+   BEFORE it lands in a page or a commit. Set 2026-08-13, after a run of
+   visuals went live and had to be reworked on the page.
 
 ## Voice
 

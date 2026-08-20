@@ -156,7 +156,10 @@
   --font-serif: 'DM Serif Display', 'Instrument Serif', Georgia, 'Times New Roman', serif;
   --font-sans:  'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
   /* FIGURES. DM Sans has NO tnum table, verified in the render path: the
-     digit 1 sits at 0.517 the width of 0 and font-variant-numeric:tabular-nums
+     digit 1 sits at 0.517 the width of 0 in BOLD, and it is worse in the
+     lighter weights, 0.475 in Medium and 0.456 in Regular. Re-measured from
+     the installed .ttf files 2026-08-19; the weight was not previously named
+     and the ratio moves with it. font-variant-numeric:tabular-nums
      is a silent no-op. Every stat set in DM Sans has a hole in it wherever a
      1 appears. IBM Plex Sans is monospaced in the figures by default, so it
      needs no feature flag to be correct. Use this for any .stat, CI, n or

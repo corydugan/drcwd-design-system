@@ -60,8 +60,13 @@ from css_parse import find_block, declarations as parse_declarations, mask
 
 REPO = Path(__file__).resolve().parent.parent
 CSS = REPO / "colors_and_type.css"
-DEFAULT_TARGET = Path.home() / (
-    "My Drive/CAREER/Business/CONTENT/2-DRAFT/drcwd-concept-diagrams")
+# The LIVE build directory, and it must stay in step with BUILD_DIR in
+# ~/.claude/scripts/render_diagram.sh. It sits outside Drive on purpose:
+# file:// URLs break on spaces and emoji, and "My Drive" has a space in it.
+# Until 2026-08-27 this pointed at a Drive copy that nothing renders from,
+# so every token sync landed in a directory of 35 files while the 146 files
+# the render script actually builds never received one.
+DEFAULT_TARGET = Path.home() / "Documents/drcwd-concept-diagrams"
 TARGET_REL = Path("_diagram.css")
 
 START = "/* ===== GENERATED TOKEN BLOCK, START. Do not edit by hand. ===== */"
@@ -75,9 +80,19 @@ PALETTE = [
     ("grape", ["900", "800", "700", "600", "500", "200", "100", "050"]),
     ("ink", ["max", "1000", "900", "700", "500", "400", "300", "200", "100", "050"]),
 ]
-SURFACE_KEYS = ["surface", "surface-fg", "surface-fg-muted", "surface-fg-subtle",
-                "surface-rule", "surface-eyebrow", "surface-stroke", "surface-accent",
-                "surface-on-accent", "surface-logo", "surface-track", "surface-baseline"]
+# Must match the surface table published in PASTE-INTO-TOOLS.md. Any token in
+# that table but missing here is generated into _diagram.css as NOTHING, so a
+# diagram reading it renders TRANSPARENT and the render script still reports
+# success. That happened on 2026-08-27: the brand card's own rule says "ONE
+# element filled with --surface-fill", and --surface-fill was not in this list,
+# so the filled element on a card silently did not exist. Six keys were added
+# that day: fg-strong, veil, fill, fill-edge, on-fill, footer.
+SURFACE_KEYS = ["surface", "surface-fg", "surface-fg-strong", "surface-fg-muted",
+                "surface-fg-subtle", "surface-rule", "surface-eyebrow",
+                "surface-stroke", "surface-accent", "surface-on-accent",
+                "surface-logo", "surface-track", "surface-baseline",
+                "surface-veil", "surface-fill", "surface-fill-edge",
+                "surface-on-fill", "surface-footer"]
 
 
 def block(css: str, selector: str) -> str:

@@ -149,7 +149,9 @@ A component never hard-codes a colour. It reads `--surface-*` and inherits whate
 | `--surface-baseline` | `--grape-200` | `--grape-500` | chart baseline / axis rule |
 
 Grape is still never a page fill. The dark field is `ink-max`, not grape.
-**Contrast on ink `#0B0B0C`, measured (rounded, not truncated):** fg 19.67:1 · fg-muted 15.61:1 · fg-subtle 11.99:1 · stroke 15.61:1 · accent 4.73:1. White on `--surface-on-accent` is **4.16:1**, so it is LARGE TEXT ONLY (≥24px, or ≥18.66px bold). Never set small text in it.
+**Contrast on ink `#0B0B0C`, measured (rounded, not truncated):** fg 19.67:1 · fg-muted 15.61:1 · fg-subtle 11.99:1 · stroke 15.61:1 · accent 13.11:1 (`--surface-accent` is grape-200 here) · baseline 4.73:1 (`--surface-baseline` is grape-500). White on grape-500 is **4.16:1**, so it is LARGE TEXT ONLY (≥24px, or ≥18.66px bold). Never set small text in it.
+
+*Corrected 2026-09-23: this line read "accent 4.73:1", which is the baseline's ratio. The same mislabel sat in `colors_and_type.css` and in `make_notebook_docs.py` and is fixed in both.*
 
 **Measure a chart fill against its neighbour, not against the field.** A bar sitting in a `--surface-track` is judged against the track. On paper the three sequential fills read 3.62:1 / 5.64:1 / 12.37:1 against `--ink-100`, not the 4.16 / 6.49 / 14.22 they score against paper. All clear the 3:1 non-text floor; the margin on the lightest is thinner than it looks.
 

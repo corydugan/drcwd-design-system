@@ -153,7 +153,9 @@ Grape is still never a page fill. The dark field is `ink-max`, not grape.
 
 *Corrected 2026-09-23: this line read "accent 4.73:1", which is the baseline's ratio. The same mislabel sat in `colors_and_type.css` and in `make_notebook_docs.py` and is fixed in both.*
 
-**Measure a chart fill against its neighbour, not against the field.** A bar sitting in a `--surface-track` is judged against the track. On paper the three sequential fills read 3.62:1 / 5.64:1 / 12.37:1 against `--ink-100`, not the 4.16 / 6.49 / 14.22 they score against paper. All clear the 3:1 non-text floor; the margin on the lightest is thinner than it looks.
+**Measure a chart fill against its neighbour, not against the field.** A bar sitting in a `--surface-track` is judged against the track. The sequential ramp has FOUR steps, not three. Against `--ink-100` they read 1.05:1 / 3.62:1 / 5.64:1 / 12.37:1, and against paper 1.21:1 / 4.16:1 / 6.49:1 / 14.22:1. The three darkest clear the 3:1 non-text floor and the margin on the lightest of those three is thinner than it looks. `--dv-seq-1` clears nothing against either field, so it cannot carry meaning on its own and needs a label, an outline or a darker neighbour beside it.
+
+*Corrected 2026-09-23: this paragraph said "the three sequential fills" and that all of them clear the floor. The ramp has four and the lightest does not.*
 
 ## 2 · Typography
 - **Serif** **Instrument Serif**, display/headlines + signature italic emphasis. Changed 2026-08-12: DM Serif Display carries 491 kern pairs against Instrument Serif's 3,805, has one weight and no optical-size axis, and sits on the Google Fonts default carousel, which is the single strongest signal that a card was built from a template.
@@ -174,7 +176,7 @@ Grape is still never a page fill. The dark field is `ink-max`, not grape.
 - Wordmark SVGs are **outlined to paths** (print-safe, no font dependency). Regenerate from `.build/outline.py` if the wordmark text changes. The retired "cd" monogram + baseline-wordmark explorations live in `logo/options/`.
 
 ## 4 · Motif: the evidence signature (v3 center of gravity)
-Kept: hairline rules as structure · generous whitespace (35–40% min) · squared editorial cards · serif-italic grape numerals.
+Kept: hairline rules as structure · generous whitespace (35 to 40% min) · squared editorial cards · serif-italic grape numerals.
 **New, evidence on display:**
 - tabular grape/near-black **stat blocks** as hero elements (`.stat`)
 - small-caps **method label** above data (`.method-label`, "METHOD" / "n =" / "EVIDENCE")

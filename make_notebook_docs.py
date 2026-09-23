@@ -152,7 +152,7 @@ A.append(table(["pair", "ratio", "verdict"], [
     ["fg-muted on field", "15.61:1", "pass"],
     ["fg-subtle on field", "11.99:1", "pass"],
     ["stroke on field", "15.61:1", "pass"],
-    ["accent on field", "4.73:1", "pass"],
+    ["accent on field", "13.11:1", "pass"],
     ["on-accent, white on grape-500", "**4.16:1**", "**LARGE TEXT ONLY**, 24px or more, or 18.66px bold or more"],
 ]))
 A.append("\nNever set small text in `--surface-on-accent`. The dark field is `ink-max`, not grape.\n")
@@ -367,7 +367,7 @@ B.append("Both surfaces carry the same card: an eyebrow, a serif headline, body 
          "label, a tabular stat, the grape data-baseline rule under it, a mono evidence line, and "
          "exactly one solid element.\n")
 B.append("**Contrast, measured on the ink field `#0B0B0C`.** fg 19.67:1, fg-muted 15.61:1, "
-         "fg-subtle 11.99:1, stroke 15.61:1, accent 4.73:1. White on `--surface-on-accent` is "
+         "fg-subtle 11.99:1, stroke 15.61:1, accent 13.11:1. White on `--surface-on-accent` is "
          "**4.16:1**, so it is large text only, meaning 24px or more, or 18.66px bold or more. "
          "Never set small text in it.\n")
 

@@ -108,8 +108,7 @@ moves linearly and nothing bounces.
 > 0.36 - 0.55   triangle fills, overlapping
 > 0.52 - 0.82   wordmark wipes left to right, hard edge
 > 0.82 - 1.04   grape rule grows from the centre of the group
-> 1.04 - 1.30   address fades up
-> 1.30 - 1.50   hold
+> 1.04 - 1.50   hold
 > ```
 >
 > **Placement, measured 2026-09-29 against both platforms' own guides.**
@@ -131,11 +130,11 @@ moves linearly and nothing bounces.
 > ```
 > scale          0.8 of the lockup units (the centred lockup used 1.56)
 > group          x 448 to 772, right-aligned to x 772
-> triangle       apex (466.7, 1111.0), base (448.3, 1144.6) to (485.1, 1144.6)
-> wordmark.png   drCWDugan, top-left (503.0, 1109.6), 269 x 47
-> grape rule     y 1192, x 448.3 to 772, 3 px, #8A6FB8, grows from x 610
-> address        drcorydugan.com, DM Sans Regular 34 px, #E4E5E7,
->                centred on x 610, baseline y 1232, bottom of type about y 1240
+> triangle       apex (466.7, 1157.0), base (448.3, 1190.6) to (485.1, 1190.6)
+> wordmark.png   drCWDugan, top-left (503.0, 1155.6), 269 x 47
+> grape rule     y 1238, x 448.3 to 772, 3 px, #8A6FB8, grows from x 610
+> address        NONE. No web address under the mark (Cory, 2026-09-29), so
+>                the group sits at the bottom of the safe area, ink y 1154 to 1239
 > ```
 >
 > Checked by drawing it over TikTok's template and Meta's margins: nothing

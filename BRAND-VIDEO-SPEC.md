@@ -140,6 +140,10 @@ moves linearly and nothing bounces.
 > Checked by drawing it over TikTok's template and Meta's margins: nothing
 > crosses either line.
 >
+> **The approved render** is `drCWDugan signature_09292026_CD.mp4` beside this file,
+> 1.5 s, 1080 x 1920, 24 fps, approved by Cory 2026-09-29. No show logo on the end card
+> of any reel from that date.
+>
 > Sections 5 and 10 below record the centred "Dr. Cory Dugan" lockup as it was
 > built in August. They are left intact as history; do not build a new sign-off
 > from them.

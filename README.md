@@ -2,7 +2,7 @@
 
 **Single source of truth** for every drCWDugan asset: logos, websites, prototypes, decks, social, screening-tool UIs. Faithful to the existing grape brand, elevated to read as a serious **healthcare-AI consultant + founder** (not a wellness coach).
 
-> **Edit only `colors_and_type.css` and `tokens.json`.** Everything else (Claude Design, the website, Canva, Figma) inherits *from here*. This file is the contract.
+> **Edit only `colors_and_type.css`.** `tokens.json` is generated from it by `scripts/build_tokens.py`. Everything else (Claude Design, the website, Canva, Figma) inherits *from here*. This file is the contract.
 
 **Locked constraints:** grape `#352051` · DM Serif Display + DM Sans + IBM Plex Sans figures · white-dominant editorial. Instrument Serif is the first serif fallback, not the display face: see the typography comment in `colors_and_type.css` for why it was restored on 2026-08-13.
 **Supersedes:** v2 grape (2026-06-12) and the retired v1 teal system.
@@ -158,7 +158,7 @@ Grape is still never a page fill. The dark field is `ink-max`, not grape.
 *Corrected 2026-09-23: this paragraph said "the three sequential fills" and that all of them clear the floor. The ramp has four and the lightest does not.*
 
 ## 2 · Typography
-- **Serif** **Instrument Serif**, display/headlines + signature italic emphasis. Changed 2026-08-12: DM Serif Display carries 491 kern pairs against Instrument Serif's 3,805, has one weight and no optical-size axis, and sits on the Google Fonts default carousel, which is the single strongest signal that a card was built from a template.
+- **Serif** **DM Serif Display**, display/headlines + signature italic emphasis. Restored 2026-08-13 on Cory's call after seeing Instrument Serif live; Instrument Serif stays as the first fallback. The kern-pair case against DM Serif Display is recorded in the typography comment in `colors_and_type.css`.
 - **Sans** DM Sans, body, UI, eyebrows. **NOT stats.**
 - **Figures** **IBM Plex Sans** (`--font-figures`) for every stat, CI, `n =` and evidence string. DM Sans has **no `tnum` table**: `font-variant-numeric: tabular-nums` on it is a silent no-op, and its digit `1` renders at 0.517 the width of its `0`, so every figure containing a 1 has a visible hole. Measured in the render path 2026-08-12, not read off a spec sheet. IBM Plex Sans is monospaced in the figures by default and needs no feature flag.
 - **Mono** the **evidence voice** (n=, p-values, CIs). Two tokens, and the split matters: `--font-mono` is `ui-monospace` for the **web**, `--font-mono-asset` is pinned **IBM Plex Mono** for anything **rendered to a file**. A system stack makes an exported PNG render differently per machine, which is drift by construction. Ratified 2026-08-12; before that the mono was a fourth typeface smuggled in under a private alias.

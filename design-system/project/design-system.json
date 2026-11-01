@@ -1,0 +1,143 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-27T05:25:22Z"
+  },
+  "title": "drCWDugan",
+  "namespace": "drCWDugan",
+  "libraries": [],
+  "sections": {},
+  "groups": [
+    "Logos",
+    "Motion"
+  ],
+  "assetGroups": {
+    "Logos": {
+      "name": "Logos",
+      "tile": "l",
+      "order": [
+        "drCWDugan lockup paper_10312026_CD.svg",
+        "drCWDugan lockup ink_10312026_CD.svg",
+        "Dr Cory Dugan lockup paper_10312026_CD.svg",
+        "Dr Cory Dugan lockup ink_10312026_CD.svg",
+        "Dr Cory Dugan credential lockup paper_10312026_CD.svg",
+        "Dr Cory Dugan credential lockup ink_10312026_CD.svg",
+        "Dr Cory Dugan stacked lockup paper_10312026_CD.svg",
+        "Dr Cory Dugan stacked lockup ink_10312026_CD.svg",
+        "icon-delta.svg",
+        "icon-delta-inverse.svg",
+        "lockup-primary-delta-outlined.svg",
+        "lockup-credential-delta-outlined.svg",
+        "wordmark-stacked-delta-outlined.svg"
+      ],
+      "files": {
+        "lockup-primary-delta-outlined.svg": {
+          "name": "lockup-primary-delta-outlined.svg",
+          "blob": "604ebe1e6d4ea2f66172ef840ec174c4",
+          "size": 13429,
+          "type": "image/svg+xml"
+        },
+        "lockup-credential-delta-outlined.svg": {
+          "name": "lockup-credential-delta-outlined.svg",
+          "blob": "4e115e27504c482b1f5081676728b9a6",
+          "size": 16873,
+          "type": "image/svg+xml"
+        },
+        "wordmark-stacked-delta-outlined.svg": {
+          "name": "wordmark-stacked-delta-outlined.svg",
+          "blob": "a27e626141305870e28a92d8a70733d1",
+          "size": 12689,
+          "type": "image/svg+xml"
+        },
+        "icon-delta.svg": {
+          "name": "icon-delta.svg",
+          "blob": "23e23de9c65c4ff39ca48edf49298048",
+          "size": 270,
+          "type": "image/svg+xml"
+        },
+        "icon-delta-inverse.svg": {
+          "name": "icon-delta-inverse.svg",
+          "blob": "4a13f33f1e6327e5dee6e02f5c253567",
+          "size": 325,
+          "type": "image/svg+xml"
+        },
+        "drCWDugan~20lockup~20paper_10312026_CD.svg": {
+          "name": "drCWDugan lockup paper_10312026_CD.svg",
+          "blob": "8fc22e6734a64c849d7545bb6337a88a",
+          "size": 9851,
+          "type": "image/svg+xml"
+        },
+        "drCWDugan~20lockup~20ink_10312026_CD.svg": {
+          "name": "drCWDugan lockup ink_10312026_CD.svg",
+          "blob": "d4ca5d0e60fc6c66c0d64dc4500240a3",
+          "size": 9851,
+          "type": "image/svg+xml"
+        },
+        "Dr~20Cory~20Dugan~20lockup~20paper_10312026_CD.svg": {
+          "name": "Dr Cory Dugan lockup paper_10312026_CD.svg",
+          "blob": "efdb0535917ee4a243978e9757105046",
+          "size": 11062,
+          "type": "image/svg+xml"
+        },
+        "Dr~20Cory~20Dugan~20lockup~20ink_10312026_CD.svg": {
+          "name": "Dr Cory Dugan lockup ink_10312026_CD.svg",
+          "blob": "d465185d186b09012be58a4889cdd544",
+          "size": 11062,
+          "type": "image/svg+xml"
+        },
+        "Dr~20Cory~20Dugan~20credential~20lockup~20paper_10312026_CD.svg": {
+          "name": "Dr Cory Dugan credential lockup paper_10312026_CD.svg",
+          "blob": "e542ac099a473f2b6ec1674756789a7c",
+          "size": 16002,
+          "type": "image/svg+xml"
+        },
+        "Dr~20Cory~20Dugan~20credential~20lockup~20ink_10312026_CD.svg": {
+          "name": "Dr Cory Dugan credential lockup ink_10312026_CD.svg",
+          "blob": "8d6f6dd58cad4e74acef7e75414fb719",
+          "size": 16002,
+          "type": "image/svg+xml"
+        },
+        "Dr~20Cory~20Dugan~20stacked~20lockup~20paper_10312026_CD.svg": {
+          "name": "Dr Cory Dugan stacked lockup paper_10312026_CD.svg",
+          "blob": "d1db5665f2dc7cb53a93a9d316ce9af6",
+          "size": 12044,
+          "type": "image/svg+xml"
+        },
+        "Dr~20Cory~20Dugan~20stacked~20lockup~20ink_10312026_CD.svg": {
+          "name": "Dr Cory Dugan stacked lockup ink_10312026_CD.svg",
+          "blob": "612edc4859ac126ba6a84f6f7d7a6af4",
+          "size": 12044,
+          "type": "image/svg+xml"
+        }
+      }
+    },
+    "Motion": {
+      "name": "Motion",
+      "tile": "m",
+      "order": [
+        "drCWDugan signature_09292026_CD.mp4"
+      ],
+      "files": {
+        "drCWDugan~20signature_09292026_CD.mp4": {
+          "name": "drCWDugan signature_09292026_CD.mp4",
+          "blob": "a37181dc47d6500e458ac66157c2d669",
+          "size": 9867,
+          "type": "video/mp4"
+        }
+      }
+    }
+  },
+  "blobs": {},
+  "docs": {
+    "sections": []
+  },
+  "lastChange": {
+    "by": "Cory Dugan",
+    "at": "2026-11-01T03:11:32Z",
+    "via": "Claude Code",
+    "note": "page set read-only; the files in the drcwd-design-system repository are edited and published here"
+  },
+  "editing": "code"
+}

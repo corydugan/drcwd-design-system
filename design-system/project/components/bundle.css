@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+/* =====================================================================
+      SEMANTIC TYPE: drop-in helpers
+   ===================================================================== */
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--surface-fg);
+  background: var(--surface);
+  font-weight: var(--fw-regular);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, .h1, .display-xl { font-family: var(--font-serif); font-size: var(--fs-display-xl); line-height: var(--lh-display); letter-spacing: var(--tracking-display); font-weight: var(--fw-regular); color: var(--color-fg); margin: 0; }
+h2, .h2, .display-lg { font-family: var(--font-serif); font-size: var(--fs-display-lg); line-height: var(--lh-display); letter-spacing: var(--tracking-display); font-weight: var(--fw-regular); color: var(--color-fg); margin: 0; }
+h3, .h3, .display-md { font-family: var(--font-serif); font-size: var(--fs-display-md); line-height: var(--lh-heading); letter-spacing: var(--tracking-display); font-weight: var(--fw-regular); color: var(--color-fg); margin: 0; }
+h4, .h4 { font-family: var(--font-sans); font-size: var(--fs-heading-lg); line-height: var(--lh-heading); font-weight: var(--fw-medium); letter-spacing: -0.005em; color: var(--color-fg); margin: 0; }
+h5, .h5 { font-family: var(--font-sans); font-size: var(--fs-heading-md); line-height: var(--lh-heading); font-weight: var(--fw-medium); color: var(--color-fg); margin: 0; }
+h6, .h6 { font-family: var(--font-sans); font-size: var(--fs-heading-sm); line-height: var(--lh-heading); font-weight: var(--fw-semibold); color: var(--color-fg); margin: 0; }
+
+/* Italic display variant, signature emphasis treatment
+   ("...translated into evidence that holds.") */
+.display-italic, em.display { font-style: italic; font-family: var(--font-serif); }
+
+p { font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-body); color: var(--color-fg-muted); margin: 0 0 1em 0; text-wrap: pretty; }
+p.lead { font-size: var(--fs-body-lg); line-height: 1.55; color: var(--color-fg-muted); max-width: 60ch; }
+
+small, .meta { font-size: var(--fs-meta); color: var(--color-fg-subtle); }
+
+.eyebrow { font-family: var(--font-sans); font-size: var(--fs-meta); font-weight: var(--fw-medium); letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--surface-eyebrow); }
+.tag { font-family: var(--font-sans); font-size: var(--fs-micro); font-weight: var(--fw-medium); letter-spacing: var(--tracking-tag); text-transform: uppercase; color: var(--surface-fg-subtle); }
+
+/* Service numerals "01 / 02 / 03" in serif italic grape */
+.numeral { font-family: var(--font-serif); font-style: italic; font-size: var(--fs-display-md); color: var(--surface-accent); line-height: 1; letter-spacing: -0.01em; }
+
+/* ---------------------------------------------------------------------
+   v3 AUTHORITY SIGNATURE: the evidence/data voice
+
+   Every class below reads --surface-*, never --color-*. Corrected 2026-08-12
+   after a test in which a model was given only the brand card and the CSS and
+   asked to build an ink card: it found that .stat read --color-fg-strong,
+   which is ink-max on BOTH surfaces, so a stat on the ink field rendered
+   #0B0B0C on #0B0B0C at 1.00:1 and was invisible. The same applied to
+   .eyebrow, .tag, .numeral, .method-label, .data-baseline, .evidence and
+   .citation. The stylesheet was telling components to read --surface-* (rule
+   3) while its own components did not.
+   --surface-fg-strong was added for .stat, so the hero number keeps ink-max on
+   paper and flips to paper on ink rather than being forced to --surface-fg.
+   --------------------------------------------------------------------- */
+
+/* STAT: big equal-width numerals, the credibility hero element.
+   MUST read --font-figures. It read --font-sans until 2026-08-12, and DM Sans
+   has no tnum table, so the two feature declarations below did nothing and
+   every stat containing a 1 rendered with a hole in it. They are kept because
+   they are correct for any future figure face that does carry tnum. */
+.stat {
+  font-family: var(--font-figures);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-stat);
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  color: var(--surface-fg-strong);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.stat--grape { color: var(--surface-accent); }
+
+/* METHOD LABEL: small-caps tag that sits ABOVE data ("METHOD" / "n =" / "EVIDENCE") */
+.method-label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-micro);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-method);
+  text-transform: uppercase;
+  color: var(--surface-fg-subtle);
+}
+
+/* DATA BASELINE: thin grape rule under a stat block (the "measured" mark) */
+.data-baseline { border: 0; border-top: var(--bw-strong) solid var(--surface-baseline); width: 48px; margin: var(--space-3) 0 0; }
+
+/* EVIDENCE: mono voice for n=, p-values, CIs, model metrics (signals "measured, not asserted") */
+.evidence, .stat-meta {
+  font-family: var(--font-mono-asset);
+  font-size: var(--fs-body-sm);
+  color: var(--surface-fg-muted);
+  letter-spacing: 0;
+}
+
+/* CITATION / FOOTNOTE: visible rigor */
+.citation { font-family: var(--font-sans); font-size: var(--fs-meta); color: var(--surface-fg-subtle); line-height: var(--lh-tight); }
+.citation a { border-bottom: 1px dotted currentColor; }
+
+/* ---------------------------------------------------------------------
+   v3.1 VERTICAL RHYTHM: headings deliberately carry margin:0 so layouts
+   own spacing; these adjacent-sibling rules add measured breathing room
+   ONLY when text follows a heading, so nothing reads cramped by default.
+   --------------------------------------------------------------------- */
+.eyebrow + h1, .eyebrow + h2, .eyebrow + h3,
+.eyebrow + .h1, .eyebrow + .h2, .eyebrow + .h3 { margin-top: var(--space-3); }
+h1 + p, h2 + p, h3 + p, h4 + p, h5 + p,
+.h1 + p, .h2 + p, .h3 + p,
+h1 + .lead, h2 + .lead, h3 + .lead { margin-top: var(--space-5); }
+h1 + h2, h2 + h3, h3 + h4 { margin-top: var(--space-4); }
+
+/* .nowrap, keep evidence units intact ("p < .001" must never break) */
+.nowrap { white-space: nowrap; }
+
+a { color: var(--color-link); text-decoration: none; border-bottom: 1px solid currentColor; transition: color var(--dur-fast) var(--ease-out); }
+a:hover { color: var(--color-link-hover); }
+
+code, pre, kbd { font-family: var(--font-mono); font-size: 0.875em; }
+
+hr { border: 0; border-top: var(--bw-hair) solid var(--color-rule); margin: var(--space-12) 0; }
+
+::selection { background: var(--grape-100); color: var(--color-fg); }
+
+/* =====================================================================
+   v3 LAYOUT PATTERNS: buttons, data tile, stat bar, evidence block,
+   comparison table. Lifted from preview/components.html in the repo.
+   Rule 3 of the brand: a component reads --surface-*, never a raw palette
+   token, so the raw grape and ink values in that file are read here
+   through the surface layer. On paper each resolves to the value the repo
+   file sets, except the primary button, which also takes the source's
+   --surface-fill-edge so a grape fill keeps a visible edge on ink.
+   ===================================================================== */
+
+/* BUTTONS */
+.btn { font-family: var(--font-sans); font-weight: var(--fw-medium); font-size: var(--fs-body-sm);
+  padding: var(--space-3) var(--space-6); border-radius: var(--radius-pill); border: 1px solid transparent;
+  cursor: pointer; text-decoration: none; display: inline-block; }
+.btn-primary { background: var(--surface-fill); color: var(--surface-on-fill); border-color: var(--surface-fill-edge); }
+.btn-secondary { background: transparent; color: var(--surface-accent); border-color: var(--color-border-strong); }
+.btn-ghost { background: transparent; color: var(--surface-accent); border: 0; border-bottom: 1px solid currentColor;
+  border-radius: 0; padding: var(--space-2) 0; }
+.btn:focus-visible { outline: var(--bw-strong) solid var(--surface-accent); outline-offset: 2px; }
+
+/* DATA TILE */
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-4); }
+.tile { border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); box-shadow: var(--shadow-xs); }
+.tile .method-label { display: block; margin-bottom: var(--space-2); }
+.tile .stat { display: block; font-size: var(--fs-display-sm); }
+
+/* STAT BAR */
+.statbar { display: flex; gap: var(--space-10); padding: var(--space-6) 0;
+  border-top: 2px solid var(--surface-fg); border-bottom: 1px solid var(--color-rule); }
+.statbar .stat { font-size: var(--fs-display-sm); }
+
+/* EVIDENCE BLOCK. It carries its own grape-050 field, so the text inside it
+   is set in the paper-surface inks on either surface. */
+.evblock { border-left: 2px solid var(--grape-800); padding: var(--space-2) var(--space-6); background: var(--color-bg-accent); }
+.evblock p, .evblock .evidence { color: var(--ink-700); }
+
+/* COMPARISON TABLE */
+table.cmp { width: 100%; border-collapse: collapse; font-size: var(--fs-body-sm); }
+table.cmp th, table.cmp td { text-align: left; padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--color-rule); color: var(--surface-fg-muted); }
+table.cmp thead th { font-family: var(--font-sans); font-weight: var(--fw-semibold); color: var(--surface-fg); border-bottom: 2px solid var(--surface-fg); }
+table.cmp td.yes { color: var(--surface-accent); font-weight: 600; }
+table.cmp td.no { color: var(--color-fg-faint); }

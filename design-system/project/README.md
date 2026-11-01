@@ -135,6 +135,7 @@ The `color-*` tokens are semantic aliases of this layer (`color-fg` is `surface-
 - **Narration:** Kore for explainers; Cory's own voice for podcasts.
 - **Numbers on screen:** freely, and every one passes the evidence check first.
 - **Ending:** the 1.5 s delta + drCWDugan sign-off, small, at the bottom right of the area TikTok and Instagram keep clear of their buttons and captions, not the frame's corner. No web address, no handle, nothing spoken over it (the Motion group).
+- **The detail:** the opening card, the sign-off's beats and pixels, the screen rules and the voice are in the Video spec section (`video-spec.md`).
 
 ## Logo
 

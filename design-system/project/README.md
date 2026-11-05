@@ -4,7 +4,7 @@ Faithful to the existing grape brand, elevated to read as a serious **healthcare
 
 ## The rules
 
-1. **Grape is accent and ink only, never a page fill.** Neutrals carry 90%+ of every layout. A grape box is an outline with the field showing through, never a filled block.
+1. **Grape is accent and ink only, never a page fill.** Neutrals carry 90%+ of every layout. On a card, a grape box is an outline with the field showing through, never a filled block. Buttons use `surface-fill`.
 2. **Two peer surfaces, not a dark mode.** `ink` is the default for feed cards; `paper` is a full peer. One carousel may mix them when it helps. Set the surface on the card root, never per component. Grape is still never the field: the dark field is `ink-max`.
 3. **A component never hard-codes a colour and never reads a raw palette token.** It reads `surface-*`. Reading `grape-200` directly is the bug that makes an asset unportable between surfaces.
 4. **Reference tokens by name**, never a raw hex inline. This includes render scaffolding outside the artboard.
@@ -19,18 +19,18 @@ Faithful to the existing grape brand, elevated to read as a serious **healthcare
 
 ## Content fundamentals
 
-Voice, terminology, names, numbers and channel rules are governed by **Brand voice guidelines v2.1** (`CAREER/Business/BRAND/Brand voice guidelines_09292026_CD.md`). It is the single voice authority; where anything here disagrees with it, it wins. The rules a visual most often breaks:
+Voice, terminology, names, numbers and channel rules are governed by **Brand voice guidelines v2.3** (`CAREER/Business/BRAND/Brand voice guidelines_09292026_CD.md`). It is the single voice authority; where anything here disagrees with it, it wins. The rules a visual most often breaks:
 
 First-person singular · **Australian English** · no emoji · no exclamation marks. Traits: authoritative · evidence-precise · plain-confident · **cites the number**. A stranger should read it in one second as clinical and calm, warm and on her side, scientific and precise.
 
 - **No em dashes and no en dashes as prose punctuation.** Use a comma, parentheses, or a full stop. Ranges are "15 to 30".
 - **The banned words** in the voice guidelines' Never-use table bind rendered card text, not only captions. Machine-check with `style_gate.py`, and check the HTML, not just the caption.
-- **Channels** (hashtag counts, disclaimers, acronyms in captions, tone per platform) live in the voice guidelines, version 2.2 of 31 October 2026.
+- **Channels** (hashtag counts, disclaimers, acronyms in captions, tone per platform) live in the voice guidelines.
 - **Never state a prevalence without its threshold.** The same cohort gives 17%, 39% or 78% for iron deficiency depending only on where the ferritin cut-off sits. Name the cut-off or do not name the number.
 - **Name the population the source names.** If the paper says "females aged 12 to 21", the asset does not say "women".
 - **Write micrograms per litre as `ug/L`, never the micro sign.** `text-transform: uppercase` maps the micro sign to a capital Greek mu, so it renders as a 1000-fold unit error that is invisible in the source.
 - **Don't:** hedge, hype, diet-culture, or claim without a figure or source behind it.
-- From the voice guidelines: "Numbers that report evidence are required. Numbers that pass judgement on a person are refused." "Dr" takes no full stop. Headings and titles name the thing, as a noun phrase.
+- From the voice guidelines: "Numbers that report evidence are required. Numbers that pass judgement on a person are refused." "Dr" takes no full stop. Headings and titles name the thing, as a noun phrase. Card titles run 2 to 4 words.
 
 Worked example of the voice:
 

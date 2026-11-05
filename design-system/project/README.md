@@ -13,7 +13,7 @@ Faithful to the existing grape brand, elevated to read as a serious **healthcare
 7. **Minimum readable size.** A 1080px card shows about 390 points wide in a phone feed. The smallest text on a card is the population line at 24px, about 8.7 points on a phone; the footer is 26px. Below 24px it is decoration: cut it rather than shrink it.
 8. **No gradient. No emoji. No exclamation marks.**
 9. **Nothing ships to the website unseen.** Any visual built for drcorydugan.com is rendered to a PNG and opened locally for Cory to approve BEFORE it lands in a page or a commit.
-10. **The colour rule covers words and text visuals.** Icons from the library keep their own colours. Red appears only inside an icon, never in a chart. A video may use colour when its text and mark are on brand.
+10. **The colour rule covers words and text visuals.** Icons from the library, including the Iron Academy art, keep their own colours. Red appears only inside an icon, never in a chart. A video may use colour when its text and mark are on brand.
 11. **When the colour is in doubt, ask Cory.**
 12. **Context decides the drawing, and Cory decides by seeing it.** Drawing type, drawing size, animation, organs and people depend on the card. Show two to four options drawn on the real card, with the same title, numbers and caption, and let Cory pick. Never ask it as a text question.
 
@@ -211,7 +211,8 @@ Cory's choices for cards:
 
 ## Iconography
 
-- **Source:** Cory's icon and clip-art library first (`~/Documents/icons-and-clip-art` on his Mac), then a matching set.
+- **Source:** Cory's icon and clip-art library first (`~/Documents/icons-and-clip-art` on his Mac), then a matching set. Its README also lists his own Iron Academy figures, a second library.
+- **Credit:** nothing that requires a credit goes out. Art we made, and public domain art that legally needs no credit, are both fine.
 - **Colour:** icons keep their own colours (rule 10). Coloured clip art is fine on `ink`.
 - **Size:** small, beside the text. Mixing icon families is fine if it reads.
 - **Organs** default to realistic illustration; people and symptoms are chosen per card (rule 12).
